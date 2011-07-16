@@ -48,7 +48,6 @@
 
   .content {
     margin-top: 10px;
-    padding: 10px;
   }
 
   ul.articles {
@@ -65,7 +64,7 @@
     text-align: left;
   }
 
-  ul.articles li a {
+  ul.articles li h2 a {
     margin-top: 4px;
     margin-bottom: 4px;
     font-size: 20px;
