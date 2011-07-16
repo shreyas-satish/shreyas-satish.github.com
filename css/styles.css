@@ -1,0 +1,148 @@
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+
+	body {
+	  background: #5d5d5d;
+	  line-height: 24px;
+	}
+
+  .site-content {
+    background: #fff;
+    min-height: 650px;
+    height: auto;
+    padding: 20px;
+	  font-size: 15px;
+	  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+	body  #header {
+    background: #fff;
+    border-bottom: 1px solid #b2b2b2;
+    padding-bottom: 4px;
+  }
+	body  #header h1 {
+	 font-size: 34px;
+	 text-align: center;
+	 line-height: 1.2em;
+	 margin-bottom: 10px;
+	 font-family: cursive, Verdana, Arial;
+	}
+
+	body  #header h1 a {
+	 color: #000;
+	}
+
+	ul.horizontal-list {
+    text-align: center;
+  }
+  ul.horizontal-list li {
+    display: inline;
+    margin-right: 5px;
+  }
+
+  ul.horizontal-list li img{
+    width: 35px;
+    height: 35px;
+  }
+
+  .content {
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  ul.articles {
+    list-style-type: none;
+
+  }
+
+  ul.articles li {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #b2b2b2;
+    text-align: left;
+  }
+
+  ul.articles li a {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 20px;
+  }
+
+  ul.articles li p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    line-height: 1.4em;
+    text-align:justify;
+  }
+
+  .details {
+    color: #a2a2a2;
+    font-size: 13px;
+  }
+
+  div.page-header {
+    border-bottom: 1px solid #b2b2b2;
+    text-align: left;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+  }
+
+  h2.article-header {
+    font-size: 20px;
+    padding-bottom: 6px;
+  }
+
+  .article-content {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .article-content p {
+    margin-bottom: 7px;
+    text-align: justify;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:link {color:#0077cc;}      /* unvisited link */
+  a:visited {color:#0077cc;}  /* visited link */
+  a:hover {color:#0077cc;}  /* mouse over link */
+  a:active {color:#0077cc;}  /* selected link */
+
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+  div.tweet-button {
+    float: left;
+  }
+
+@media handheld, only screen and (max-width: 767px) {
+
+	body {
+
+	}
+
+
+
+}
+
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+/*	.logo {
+		background: url(logo2x.jpg) no-repeat;
+		background-size: 212px 303px;
+	}*/
+
+}
+
