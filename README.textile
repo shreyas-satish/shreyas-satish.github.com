@@ -2,8 +2,7 @@ h1. Shreyas Satish - Blog
 
 Automatically transformed by "Jekyll":http://github.com/mojombo/jekyll into a static site whenever I push this repository to GitHub.
 
-This blog implements "Responsive Web Design":http://www.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/ using
-the "CSSGrid.net framework.":http://cssgrid.net . I am thankful to Github for hosting this blog free of cost.
+This blog implements "Responsive Web Design":http://www.smashingmagazine.com/2011/01/12/guidelines-for-responsive-web-design/ using the "CSSGrid.net framework.":http://cssgrid.net . I am thankful to Github for hosting this blog free of cost.
 
 h1. License
 
