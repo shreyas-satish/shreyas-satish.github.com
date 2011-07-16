@@ -20,6 +20,7 @@
     background: #fff;
     border-bottom: 1px solid #b2b2b2;
     padding-bottom: 4px;
+    margin-bottom: 20px;
   }
 	body  #header h1 {
 	 font-size: 34px;
@@ -86,12 +87,10 @@
     border-bottom: 1px solid #b2b2b2;
     text-align: left;
     margin-bottom: 10px;
-    padding-bottom: 6px;
   }
 
   h2.article-header {
     font-size: 20px;
-    padding-bottom: 6px;
   }
 
   .article-content {
@@ -118,7 +117,12 @@
 /* ============================= */
 
   div.tweet-button {
-    float: left;
+  }
+
+  #footer {
+    background: #eee;
+    padding: 10px;
+    text-align: center;
   }
 
 @media handheld, only screen and (max-width: 767px) {
