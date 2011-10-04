@@ -404,8 +404,6 @@ permalink: /jsfoo-coffeescript.html
         <div class = "slide" id = 'lexical-scoping-js'>
           <header>Lexical Scoping in JS</header>
           <section>
-            <ul data-build>
-            <li>
             <pre class = 'lang-js'>
               var outer = function() {
                   var scope = "outer";
@@ -419,10 +417,11 @@ permalink: /jsfoo-coffeescript.html
               i = outer();
               i();
             </pre>
-            </li>
+            <ul data-build>
             <li>
             Bad idea to shadow variables, good to declare variables at the top of the scope.
             </li>
+            </ul>
           </section>
         </div>
 
