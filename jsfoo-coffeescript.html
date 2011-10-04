@@ -171,11 +171,6 @@ permalink: /jsfoo-coffeescript.html
             <p id="disclaimer-message">Presentation template from <a href="http://html5rocks.com/">http://html5rocks.com/</a></p>
             <p>Press <span class="key">PgDn</span> to advance.</p>
           </section>
-          <aside class="note">
-            <section>
-              Welcome! (This field is for presenter notes and commentary.)
-            </section>
-          </aside> 
         </div>
 
 
@@ -283,16 +278,16 @@ permalink: /jsfoo-coffeescript.html
           <section>
             <h3>Equality</h3>
             <ul data-build>
-              <li>What's up the == operator?
+              <li>What's up with the == operator?
               <pre class="lang-js">
-2 === "2"; // false - obviously a number is not a string
-2 == "2";  // true</pre></li>
+1 === "1"; // false - ok
+1 == "1";  // true What ? ! ?</pre></li>
               <li>
                 Coffee : 
                 <pre class="lang-coffee">
-                  2 == "2" // false
+                  1 == "1" // false
                   compiles to
-                  2 === "2"; //false
+                  1 === "1"; //false
                 </pre>
                 Some Syntactic Sugar?
                 <pre class="lang-coffee">
@@ -318,7 +313,7 @@ permalink: /jsfoo-coffeescript.html
               <p>CoffeeScript : </p>
             <ul>
               <li>Everything is truthy except null & defined. </li>
-              <li>Use the ? to check if value exists or not.</li>
+              <pre class = 'lang-coffee'>x or= 1</pre>
             </ul>
 
           </section>
@@ -521,10 +516,10 @@ permalink: /jsfoo-coffeescript.html
           <header>Picks</header>
           <section>
           <ul data-build>
-            <li>js2coffee.org</li>
-            <li>tinkerbin</li>
-            <li>coffeetable</li>
-            <li>The Little Book on CoffeeScript</li>
+            <li><a href = "http://www.js2coffee.org">js2coffee</a></li>
+            <li><a href = "http://tinkerbin.com">tinkerbin</a></li>
+            <li><a href = "http://code.alecperkins.net/coffeetable/">coffeetable</a></li>
+            <li><a href = "http://arcturo.github.com/library/coffeescript/">The Little Book on CoffeeScript</a></li>
           </ul>
           </section>
         </div>
