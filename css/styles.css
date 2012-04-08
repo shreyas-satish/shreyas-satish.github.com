@@ -19,6 +19,18 @@
 	  border-top-left-radius: 6px;
   }
 
+  p {
+    line-height: 1.6em;
+    margin: 10px 0px 10px 0px;
+  }
+
+  .self-img {
+    width: 200px;
+    height: 200px;
+    float:right;
+    margin: 4px 0px;
+  }
+
 	body  #header {
     background: #fff;
     border-bottom: 1px solid #b2b2b2;
