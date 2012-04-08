@@ -1,0 +1,103 @@
+---
+layout: false
+title: WorldView Demo
+comments: false
+categories:
+  worldview
+---
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>OpenLayers Google (v3) Layer Example</title>
+        <!--<script src="http://maps.google.com/maps/api/js?v=3.5&amp;sensor=false"></script>-->
+        <!--<script src="http://openlayers.org/dev/OpenLayers.js"></script>-->
+
+        <style>
+            #map {
+                width: 100%;
+                height: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="title">WorldView</h1>
+        <div id="map"></div>
+
+        <script src="/javascripts/OpenLayers.js"></script>
+
+        <script src="/javascripts/worldview.js"></script>
+
+        <script type = 'text/javascript'>
+
+            var w = new WorldView({ 
+                mapid: 'map',
+                imagesPath: "/media/wv_images/",
+                cssPath: "/css/map.css",
+
+                layers: {
+                    'OSM': {},
+                },
+                initialCoordinates: {
+                    lon: 6.056181,
+                    lat: 46.233988
+                },
+                initialZoom: 16
+            });
+
+            window.world = w;
+            
+            var vectorLayer = new WorldView.VectorLayer(w.map, {
+                events: true,
+                featureSelected: onFeatureSelect,
+                featureUnselected: onFeatureUnselect
+            });
+
+            var marker = vectorLayer.addMarker({
+                lon: 6.056181,
+                lat: 46.233988,
+                style: {
+                   externalGraphic: "/media/wv_images/marker.png",
+                   graphicHeight: 25,
+                   graphicWidth: 15,
+                   graphicOpacity: 1.0
+               }
+            });
+            
+            // You can define a custom callback for when a marker is selected
+            function onFeatureSelect(event) {
+                var popContent = "<div style='color:red;margin-top:20px;'>This is CERN.</div>";
+                var pop = vectorLayer.addPopup({
+                  feature: marker,
+                  content: popContent,
+                  width: 100,
+                  height: 100
+                });
+            }
+
+            You can define a custom callback for when a marker is unselected
+            function onFeatureUnselect(event) {
+            }
+
+            var wvtb = world.initToolbar({
+                vectorLayer: vectorLayer,
+                controls: {
+                    "navigate": {},
+                    "point": {},
+                    "line": {},
+                    "polygon": {},
+                    "drag": {}
+                }
+            });
+
+            WorldView.Toolbar.featureAdded = function(feature) {
+                alert(feature.geometry);
+            }
+          
+        </script>
+
+    </body>
+</html>
