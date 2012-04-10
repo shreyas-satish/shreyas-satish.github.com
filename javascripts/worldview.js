@@ -63,7 +63,7 @@
           fillColor: "#ff0000",
           fillOpacity: 0.5,
           cursor: "pointer",
-          externalGraphic: OpenLayers.ImgPath + "gv_marker.png",
+          externalGraphic: OpenLayers.ImgPath + "marker.png",
           graphicHeight: 25,
           graphicWidth: 15,
           graphicOpacity: 1
