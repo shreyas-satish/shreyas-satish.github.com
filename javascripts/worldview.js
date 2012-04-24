@@ -7,15 +7,14 @@
     function WorldView(mapconfig) {
       var layer, options;
       this.mapconfig = mapconfig;
+      OpenLayers.ImgPath = this.mapconfig.imagesPath || 'http://openlayers.org/dev/img/';
       this.map = new OpenLayers.Map(document.getElementById(this.mapconfig.mapid), {
         theme: this.mapconfig.cssPath,
         projection: this.mapconfig.projection || "EPSG:900913",
-        numZoomLevels: this.mapconfig.numZoomLevels || 15,
-        controls: []
+        numZoomLevels: this.mapconfig.numZoomLevels || 15
       });
-      OpenLayers.ImgPath = this.mapconfig.imagesPath || 'http://openlayers.org/dev/img/';
       this.mapID = this.mapconfig.mapid;
-      this.map.addControls([new OpenLayers.Control.Navigation(), new OpenLayers.Control.Attribution(), new OpenLayers.Control.PanZoomBar(), new OpenLayers.Control.LayerSwitcher()]);
+      this.map.addControls(this.mapconfig.controls || [new OpenLayers.Control.LayerSwitcher()]);
       this.map.addLayers((function() {
         var _ref, _results;
         _ref = this.mapconfig.layers;
@@ -30,8 +29,13 @@
       this.initStyles();
     }
 
-    WorldView.prototype.setMapCenter = function(lon, lat, zoom) {
-      return this.map.setCenter(WorldView.transformToMercator(this.map, lon, lat), zoom);
+    WorldView.prototype.setMapCenter = function(lon, lat, zoom, transform) {
+      if (transform == null) transform = true;
+      if (transform === true) {
+        return this.map.setCenter(WorldView.transformToMercator(this.map, lon, lat), zoom);
+      } else {
+        return this.map.setCenter(WorldView.createLonLat(lon, lat), zoom);
+      }
     };
 
     WorldView.transformToMercator = function(map, lon, lat) {
@@ -68,6 +72,18 @@
           graphicWidth: 15,
           graphicOpacity: 1
         }),
+        "temporary": new OpenLayers.Style({
+          strokeColor: "#ff0000",
+          strokeOpacity: .7,
+          strokeWidth: 1,
+          fillColor: "#ff0000",
+          fillOpacity: 0.5,
+          cursor: "pointer",
+          externalGraphic: OpenLayers.ImgPath + "marker.png",
+          graphicHeight: 25,
+          graphicWidth: 15,
+          graphicOpacity: 1
+        }),
         "select": new OpenLayers.Style({
           strokeColor: "#0033ff",
           strokeOpacity: .7,
@@ -91,7 +107,7 @@
       this.afterFeatureAdd = __bind(this.afterFeatureAdd, this);
       this.drawFeature = __bind(this.drawFeature, this);      this.map = map;
       this.mapID = mapID;
-      this.toolbarID = this.mapID + "-toolbar";
+      this.toolbarID = this.mapID + "-toolbar" + (options.id || "");
       this.initToolbarDOM();
       this.initToolbarControls(options, this.map);
     }
@@ -297,10 +313,10 @@
     };
 
     VectorLayer.prototype.generatePoints = function(pointsOptions) {
-      var i, points;
+      var point, points;
       points = [];
-      for (i in pointsOptions) {
-        points.push(WorldView.transformPoint(this.map, WorldView.createOlPoint(pointsOptions[i].lon, pointsOptions[i].lat)));
+      for (point in pointsOptions) {
+        points.push(WorldView.transformPoint(this.map, WorldView.createOlPoint(point.lon, point.lat)));
       }
       return points;
     };
@@ -309,7 +325,7 @@
       var feature, linear_ring, points;
       points = this.generatePoints(options.points);
       linear_ring = new OpenLayers.Geometry.LinearRing(points);
-      feature = new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Polygon([linear_ring]), null, options.style || {});
+      feature = new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Polygon([linear_ring]), options.attributes || {}, options.style || {});
       this.addFeature(feature);
       return feature;
     };
@@ -327,7 +343,7 @@
     VectorLayer.prototype.addLine = function(options) {
       var feature, points;
       points = this.generatePoints(options.points);
-      feature = new OpenLayers.Feature.Vector(new OpenLayers.Geometry.LineString(points), null, options.style || {});
+      feature = new OpenLayers.Feature.Vector(new OpenLayers.Geometry.LineString(points), options.attributes || {}, options.style || {});
       this.addFeature(feature);
       return feature;
     };
@@ -394,9 +410,6 @@
         numZoomLevels: 22
       });
     },
-    'Yahoo': function() {
-      return new OpenLayers.Layer.Yahoo("Yahoo");
-    },
     'Bing Road': function(options) {
       return new OpenLayers.Layer.Bing({
         name: "Road",
@@ -416,11 +429,6 @@
         name: "Aerial",
         key: options.apiKey,
         type: "Aerial"
-      });
-    },
-    'WMS': function() {
-      return new OpenLayers.Layer.WMS("OpenLayers WMS", "http://vmap0.tiles.osgeo.org/wms/vmap0", {
-        layers: 'basic'
       });
     }
   };
