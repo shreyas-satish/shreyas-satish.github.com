@@ -3,7 +3,7 @@
 /* ============================== */
 
 	body {
-	  background: #5d5d5d;
+	  background: #4c4c4c;
 	  line-height: 24px;
 	}
 
@@ -48,6 +48,11 @@
 	body  #header h1 a {
 	 color: #000;
 	}
+
+  .self-photo {
+    float: left;
+    margin-right: 20px;
+  }
 
 	ul.horizontal-list {
     text-align: center;
