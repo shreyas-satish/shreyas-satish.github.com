@@ -2,6 +2,7 @@
 layout: default
 title: Introducing WorldView, an easier way to use OpenLayers.
 categories: blog
+date: 4th May, 2012 
 ---
 <div class = 'page-header'>
   <h2 class = 'article-header'>
