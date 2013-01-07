@@ -13,7 +13,7 @@ date: 4th May, 2012
   </div>
 </div>
 
-&#x20; <a href = "https://github.com/shreyas-satish/worldview" target="_blank">WorldView</a> is a little library I wrote, to make using <a href = "http://openlayers.org" target="_blank">OpenLayers</a> for a set of common use cases with maps, **easy**. OpenLayers is of course a great mapping library, but it can be intimidating at times to perform some basic cases even. Christopher Schmidt, one of the lead developers on OpenLayers had this to say :
+&#x20; <a href = "https://github.com/shreyas-satish/worldview" target="_blank">WorldView</a> is a little library I wrote, to make using <a href = "http://openlayers.org" target="_blank">OpenLayers</a> for a set of common use cases with maps, **easy**. OpenLayers is of course a great mapping library, but it can be intimidating at times to perform some basic cases even. Christopher Schmidt, one of the lead developers of OpenLayers had this to say :
 
 > The OpenLayers API is difficult to get started with for many simple problems. It can be hard to use, confusing to start, and difficult to understand for solving simple problems. 
 
