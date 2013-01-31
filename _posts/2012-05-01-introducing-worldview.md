@@ -13,7 +13,7 @@ date: 4th May, 2012
   </div>
 </div>
 
-I wrote <a href = "https://github.com/shreyas-satish/worldview" target="_blank">WorldView</a> to solve a couple of simple and recurring problems while using <a href = "http://openlayers.org" target="_blank">OpenLayers</a>, . Nothing more. While OpenLayers is a powerful mapping library, it can be cumbersome at times. Christopher Schmidt-one of the lead developers of OpenLayers-had this to say :
+I wrote <a href = "https://github.com/shreyas-satish/worldview" target="_blank">WorldView</a> to solve a couple of simple, recurring problems while using <a href = "http://openlayers.org" target="_blank">OpenLayers</a>. Nothing more. While OpenLayers is a powerful mapping library, it can be cumbersome at times. Christopher Schmidt-one of the lead developers of OpenLayers-had this to say :
 
 > The OpenLayers API is difficult to get started with for many simple problems. It can be hard to use, confusing to start, and difficult to understand for solving simple problems. 
 
@@ -24,7 +24,7 @@ It was encouraging to learn that, an OpenLayers core developer shared the same s
 
 WorldView abstracts away these two problems by providing with an easy-to-use set of APIs. What if I need to do something more advanced? WorldView wraps or returns (depending on the use case) OpenLayers objects, so you can use the OpenLayers API directly.
 
-I wrote WorldView in <a href="http://coffeescript.org" target="_blank">CoffeeScript</a>, to satisfy my curiosity about the language. I feel CoffeeScript's clean syntax along with it's nifty features like comprehensions and classes, do make a case for it to be preferred to JavaScript. Coming back to WorldView, you DO NOT need to use CoffeeScript to use the library; I've included the worldview.js in the source.
+I wrote WorldView in <a href="http://coffeescript.org" target="_blank">CoffeeScript</a>, to satisfy my curiosity about the language. I feel CoffeeScript's clean syntax along with it's nifty features like classes and comprehensions, do make a case for it to be preferred to JavaScript. Coming back to WorldView, you DO NOT need to use CoffeeScript to use the library; I've included the worldview.js in the source.
 
 Finally, we've been using the WorldView-OpenLayers combination at <a href = 'http://mapunity.in/' target = '_blank'>Mapunity</a> and it has saved us time and simplified our code when we're dealing with maps.
 
