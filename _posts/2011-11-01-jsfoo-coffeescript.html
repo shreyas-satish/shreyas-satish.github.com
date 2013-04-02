@@ -1,0 +1,624 @@
+---
+layout: false
+title: jsfoo - Cleaner JavaScript with CoffeeScript
+comments: false
+categories: presentations
+---
+
+<!DOCTYPE html>
+<!--
+  Copyright 2011 Shreyas Satish <shreyas.satish AT gmail DOT com>
+
+
+  License and copyright notice for the HTML5Rocks slides:
+  
+  Copyright 2011 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Chrome DevRel Team (chrome-devrel@googlegroups.com)
+                 Alex Russell (slightlyoff@chromium.org)
+                 Brad Neuberg
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+    <title>CoffeeScript: Cleaner Javascript with CoffeeScript</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono" rel="stylesheet" type="text/css" />
+    <link href="/css/prettify.css" rel="stylesheet"/>
+    <link href="/css/moon.css" class="theme" rel="stylesheet" />
+    <link href="/css/sand.css" class="theme" rel="stylesheet" />
+    <link href="/css/sea_wave.css" class="theme" rel="stylesheet" />
+    <link href="/css/default.css" class="theme" rel="stylesheet" /media="screen" />
+    <style>
+      .slide li, .slide p {
+        font-size: 28px;
+        line-height: 1em;
+      }
+      .slide li {
+        list-style-type: disc;
+      }
+      .slide pre {
+        margin: 0.5em 0;
+        font-family: 'Droid Sans Mono';
+        font-size: 20px;
+      }
+
+      .slide code {
+        font-family: 'Droid Sans Mono';
+        font-size: 90%;
+      }
+
+      img.drop {
+        box-shadow: 8px 8px 16px #888;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+        font-size: 96px;
+        font-weight: bold;
+      }
+      h2 {
+        color: #181818;
+        font-size: 56px;
+        letter-spacing: -1px;
+      }
+      h3 {
+        color: black;
+        font-size: 40px;
+        letter-spacing: -1px;
+        margin: 0;
+      }
+
+      div.editor, pre.editor-jsbuffer, pre.editor-console {
+        font-size: 18px;
+      }
+
+      div.editor {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -450px;
+        width: 462px;
+        margin-top: -324px;
+        height: 524px;
+        visibility: hidden;
+      }
+
+      div.editor.visible {
+        visibility: visible !important;
+      }
+
+      div.editor-content {
+        display: none;
+      }
+
+      pre.editor-jsbuffer {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: 22px;
+        width: 392px;
+        margin-top: -340px;
+        height: 518px;
+        background-color: rgba(255, 204, 0, 0.05);
+        border: 2px solid rgba(255, 204, 0, 0.3);
+        padding: 10px 10px;
+        border-radius: 10px;
+        overflow: auto;
+      }
+
+      pre.editor-console {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -440px;
+        width: 855px;
+        margin-top: 210px;
+        height: 106px;
+        background-color: rgba(0, 0, 0, 0.05);
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        padding: 10px 10px;
+        border-radius: 10px;
+        overflow: auto;
+        word-wrap: break-word;
+      }
+
+      pre.editor-console span.input {
+        color: #666;
+      }
+
+      pre.editor-console span.error {
+        color: red;
+      }
+
+      .hide-jsbuffer .editor-jsbuffer {
+        visibility: hidden;
+      }
+      .hide-jsbuffer .editor {
+        width: 886px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="presentation-counter">Loading...</div>
+    
+    <div class="presentation">
+      <div class="slides">
+
+        <div class="slide" id="landing-slide">
+          <style>
+            p#disclaimer-message {
+              font-size: 20px;
+            }
+            #landing-slide p.help, #landing-slide p.help span.key {
+              font-size: 22px;
+            }
+          </style>
+          <section class="middle">
+            <p>This presentation is an HTML5 website</p>
+            <p id="disclaimer-message">Presentation template from <a href="http://html5rocks.com/">http://html5rocks.com/</a></p>
+            <p>Press <span class="key">PgDn</span> to advance.</p>
+          </section>
+        </div>
+
+
+        <div class="slide" id="title-slide">
+          <style>
+            #title-slide h1 {
+              color: #594E42;
+            }
+            #title-slide h2 {
+              color: black;
+              font-size: 48px;
+              margin-top: -5px;
+            }
+            #title-slide p {
+              line-height: 1em;
+            }
+          </style>
+          <section class="middle">
+            <hgroup>
+              <h2>Cleaner JavaScript with CoffeeScript</h2>
+              <p style="margin-top: 0.3em"><img src="/media/coffeescript_logo.png" align="center"/></p>
+            </hgroup>
+            <p style="margin: 0; color: black">Shreyas Satish</p>
+            <p style="margin: 0">@shreyas_satish</p>
+          </section>
+        </div>
+
+        <div class="slide" id="js-ubiqitous">
+          <section class="middle">
+            <h2>JavaScript is ubiqitous. </h2>
+          </section>
+        </div>
+
+        <div class="slide" id="coffee-intro">
+          <section class="middle">
+            <h2>CoffeeScript - A thought experiment</h2>
+            <h3> - Jeremy Ashkenas</h3>
+          </section>
+        </div>
+
+        <div class="slide" id="coffee-sass">
+          <section class="middle">
+            <h3>CoffeeScript : Javascript :: SASS : CSS</h3>
+          </section>
+        </div>
+
+        <div class="slide" id="show-code">
+          <section class="middle">
+            <h3>Show me the code !</h3>
+          </section>
+        </div>
+
+        <div class="slide" id="coffee-sings">
+          <section class="middle">
+            <h3>CoffeeScript does not spit out JS. It sings JS.</h3>
+          </section>
+        </div>
+        <div class="slide" id="pretty-syntax">
+          <section class = 'middle'>          
+            <img src = "/media/cake.jpg" />            
+            <h3>The sweet syntax is just the icing on the cake.</h3>
+          </section>
+        </div>
+        <div class="slide" id="hefty-claims">
+          <section>
+            <h3>CoffeeScript makes some hefty claims.</h3>
+            <ul data-build>
+              <li>Hides the Bad parts and focusses on the good parts.</li>
+              <li>Extracts common patterns from JS and creates idioms for 'em.</li>
+              <li>Introduces a better OOP model to JS.</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="slide" id="crockford-slide">
+                  <section class="middle">
+                    <h2>Douglas Crockford</h2>
+            <p><img class="drop" style = "height:300px;" src="/media/javascript_the_good_parts.jpg"/></p>
+          </section>
+        </div>
+
+        <div class = 'slide' id = 'global-variables'>
+          <section>
+            <h2>Global Variables</h2>
+            <ul data-build>
+              <li>
+                JS : Global variables are evil.
+                <pre class = 'lang-js'>
+                  var a = 1, b = 2
+                  var a = 1; b = 2 // b is global! Oops.
+                </pre>
+              </li>
+              <li>
+                Coffee :
+                <ul>
+                  <li> No Global variables unless explicitly specified.</li>
+                  <li>Attach global var as a property of the global object</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <div class = 'slide' id = 'coffee-equality'>
+          <section>
+            <h3>Equality</h3>
+            <ul data-build>
+              <li>What's up with the == operator?
+              <pre class="lang-js">
+1 === "1"; // false - ok
+1 == "1";  // true What ? ! ?</pre></li>
+              <li>
+                Coffee : 
+                <pre class="lang-coffee">
+                  1 == "1" // false
+                  compiles to
+                  1 === "1"; //false
+                </pre>
+                Some Syntactic Sugar?
+                <pre class="lang-coffee">
+                  == synonymous to is, != synonymous to isnt
+                  if "CoffeeScript" isnt "bad"
+                    console.log "CoffeeScript is awesome!"
+                </pre>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <div class = 'slide' id = 'truthy-falsy'>
+          <header>Falsy Values</header>
+          <section>
+            <p>In JS falsy values are : 0, NaN, '', false, null, undefined</p>
+            <pre class = 'lang-js'>
+            value = myObject[name];
+              if (value == null) {
+                alert(name + ' not found.');
+              }
+            </pre>
+            
+              <p>CoffeeScript : </p>
+            <ul>
+              <li>Everything is truthy except null & defined. </li>
+              <pre class = 'lang-coffee'>x or= 1</pre>
+            </ul>
+
+          </section>
+        </div>
+
+        <div class="slide" id="coffee-features">
+          <section class="middle">
+            <h3>"Coffeescript language features are about taking popular design patterns in Javascript and coming up with an idiom for them." - Jeremy Ashkenas
+            </h3>
+          </section>
+        </div>
+
+        <div class="slide" id="a-few-coffee-wins">
+          <header>A Few CoffeeScript Wins</header>
+          <section>
+            <ul data-build>
+              <li>Last value is implicitly returned.
+              <p>For high perf JS, better to explicitly return when you don't need a return value.
+              </p>
+              <pre class = 'lang-coffee'>
+                some_complex_foo = -> 
+                  some_heavy_object
+                  return // returns undefined
+              </pre>
+              </li>
+              <li>Significant Whitespace</li>
+              <li>Everything is an expression</li>
+              <li>String interpolation with #{} like Ruby.
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="slide" id="a-few-more-coffee-wins">
+          <header>And a Few More ...</header>
+          <section>
+            <ul data-build>
+              <li>Loops and Comprehensions.</li>
+              <pre class = 'lang-coffee'>
+              num = 6
+              lyrics = while num -= 1
+                "#{num} little monkeys, jumping on the bed.
+                  One fell out and bumped his head."
+              </pre>
+              <li>Splats
+              <pre class = 'lang-coffee'>
+                confs = (current_conf, others...) -> ...
+                confs('jsFoo', 'PHPCloud', 'DoctypeHTML')
+              </pre>
+              </li>
+              <li>Existential operator
+                            <pre class = 'lang-coffee'>
+                              y = 1
+                              z = x ? y
+                            </pre>
+                            </li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="slide" id="and-some-more-coffee-wins">
+                  <header>And Some More ...</header>
+                  <section>
+                    <ul data-build>
+                      <li>Object literals : Can follow the YAML format
+                      </li>
+                      <li>Nicer Conditionals
+                      <pre class = 'lang-coffee'>
+                        x = 2
+                        z = if x is 1 then 4 else 5
+                        z or= y
+                      </pre>
+                      </li>
+                      <li>
+                      Destructing Assignment - CS
+                      <pre class = 'lang-coffee'>
+                      sum_and_diff = (a, b) 
+                        -> [ a + b, a - b]
+                      [ sum, diff ] = sum_and_diff 5, 2
+                      sum # returns 7
+                      diff # returns 3
+                      </pre>
+                      </li>
+                    </ul>
+                  </section>
+        </div>
+
+        <div class = "slide" id = 'lexical-scoping-js'>
+          <header>Lexical Scoping in JS</header>
+          <section>
+            <pre class = 'lang-js'>
+              var outer = function() {
+                  var scope = "outer";
+                  var inner = function f() {
+                      console.log(scope);
+                      var scope = "inner"
+                      console.log(scope);
+                  }
+                  return inner;
+              }
+              i = outer();
+              i();
+            </pre>
+            <ul data-build>
+            <li>
+            Bad idea to shadow variables, good to declare variables at the top of the scope.
+            </li>
+            </ul>
+          </section>
+        </div>
+
+        <div class = "slide" id = 'lexical-scoping-coffee'>
+                  <header>Automatic Lexical Scoping in Coffee</header>
+                  <section>
+                    <pre class = 'lang-js'>
+                      outer = ->
+                        scope = 'outer'
+                          inner = ->
+                            console.log scope //Prints 'outer'
+                            scope = 'inner' // Redefined
+                            console.log scope // Prints 'inner'
+                      i = outer()
+                      i()
+                    </pre>
+                    <ul data-build>
+                    <li>Discourages Shadowing.</li>
+                    <li>Declaration inferred from assignment, variables pushed to the top of the scope.</li>
+                    </ul>
+                    </p>
+                  </section>
+                </div>
+        
+
+        <div class="slide" id="bound-function">
+          <header>
+            Bound Function Literals : The Fat arrow.
+          </header>
+          <section>
+            <pre class = 'lang-coffee'>
+              Box = (@name) ->
+                $('.box').bind 'click', (e) =>
+                  alert(@name + " says hello.");
+              
+              b = new Box("black box!")
+            </pre>
+          </section>
+        </div>
+
+        <div class="slide" id="coffee-has-class">
+             <section class = 'middle'>
+                    <h2>CoffeeScript has class.</h2>
+                  </section>
+        </div>
+
+        <div class="slide" id="class-literals">
+           <section>
+            <pre class = 'lang-coffee'>
+              class Animal
+                @favourite_channel: "Animal Planet" #Class variable.
+                @whats_your_favourite_channel: -> #Class method.
+                  console.log @favourite_channel
+
+                constructor: ->
+                  @alive = true
+                  Animal.count++
+                
+                run: ->
+                  console.log "I run."
+                                
+              class Cheetah extends Animal
+                run: ->
+                  console.log "I run quick."
+                  super                  
+                                
+              cheetah= new Cheetah
+              cheetah.run()
+              Animal.whats_your_favourite_channel()
+
+            </pre>
+          </section>
+        </div>
+
+        <div class = 'slide' id = 'monkey-patch'>
+          <header>Monkey Patching</header>
+          <section>
+          <pre class = 'lang-coffee'>
+            String::capitalize = () ->
+              (this.split(/\s+/).map (word) ->
+                word[0].toUpperCase() +
+                word[1..-1].toLowerCase()).join ' '
+
+            "foo bar     baz".capitalize()
+          </pre>
+          <h4>Use with caution. Consider the Open/Closed principle.</h4>
+          </section>
+        </div>
+
+        <div class = 'slide' id = 'coffee-picks'>
+          <header>Picks</header>
+          <section>
+          <ul data-build>
+            <li><a href = "http://www.js2coffee.org">js2coffee</a></li>
+            <li><a href = "http://tinkerbin.com">tinkerbin</a></li>
+            <li><a href = "http://code.alecperkins.net/coffeetable/">coffeetable</a></li>
+            <li><a href = "http://arcturo.github.com/library/coffeescript/">The Little Book on CoffeeScript</a></li>
+          </ul>
+          </section>
+        </div>
+
+        <div class = 'slide' id = 'coffee-love'>
+          <section class = 'middle'>
+            <h2>Some</h2> <img width = "200px" height = "200px" src = '/media/red_heart.png' />
+            <br><h3>For</h3><h2>CoffeeScript</h2>
+          </section>
+        </div>
+
+        <div class="slide" id="github-rank-coffee">
+          <section class="middle">
+            <h3>
+              Ranked #14 on Github on popularity.<br>
+              (As of Oct 1st 2011)
+            </h3>
+          </section>
+        </div>
+
+        <div class="slide" id="anon-so">
+          <section class="middle">
+            <h3>
+              “Proper classes, generators, terser closures, ruby-like removal of inferable parenthesis, and lack of ';' is a big win."- Anon, Stackoverflow
+            </h3>
+          </section>
+        </div>
+
+        <div class="slide" id="crockford-coffee">
+          <section class="middle">
+            <h3>
+              “CoffeeScript is really great and definitely in the right direction.” - Douglas Crockford
+            </h3>
+          </section>
+        </div>
+
+        <div class="slide" id="thank-you">
+          <section class="middle">
+            <h3>
+                @shreyas_satish <br>
+                thanks
+                @hasgeek & <br>
+                YOU ! 
+                
+            </h3>
+          </section>
+        </div>
+
+
+
+      </div> <!-- slides -->
+      <style>
+      #speaker-note {
+        position:absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 50%;
+        z-index: 50;
+        background-color: rgba(255, 255, 255, 0.95);
+        overflow: auto;
+        padding: 2px 20px;
+        -webkit-transition: top 0.5s ease-in-out;
+        -moz-transition: top 0.5s ease-in-out;
+        -o-transition: top 0.5s ease-in-out;
+        transition: top 0.5s ease-in-out;
+      }
+      #speaker-note.invisible {
+        top: 101%;
+      }
+      </style>
+      <div id="speaker-note" class="invisible" style="display: none;">
+      </div> <!-- speaker note -->
+    </div> <!-- presentation -->
+
+    <!--[if lt IE 9]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">
+    </script>
+    <script>CFInstall.check({ mode: "overlay" });</script>
+    <![endif]-->
+
+    <script src="/javascripts/presentation/ace.js"></script>
+    <script src="/javascripts/presentation/mode-coffee.js"></script>
+    <script src="/javascripts/presentation/theme-textmate.js"></script>
+    <script src="/javascripts/presentation/prettify.js"></script>
+    <script src="/javascripts/presentation/utils.js"></script>
+    <script src="/javascripts/presentation/lang-sql.js"></script>
+    <script>prettyPrint();</script>
+    <script type = "text/javascript">
+      var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24580841-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+  </body>
+</html>
