@@ -27,55 +27,24 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  table {
-    max-width: 100%;
-    background-color: transparent;
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-
-  .table {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .table th,
-  .table td {
-    padding: 30px 8px 30px 8px;
-    line-height: 20px;
+  
+  ul.card {
     text-align: left;
-    vertical-align: top;
-    border-bottom: 1px solid #dddddd;
-    font-size: 16px;
+    padding-left: 10px;
   }
 
-  .table th {
-    font-weight: bold;
+  ul.card li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 22px;
+    margin-right: 0;
+    border-left: none;
+    padding-left: 0;
   }
 
-  .table tr:hover {
-    background: #f2f2f2;
-  }
-
-  .table thead th {
-    vertical-align: bottom;
-  }
-
-  .table caption + thead tr:first-child th,
-  .table caption + thead tr:first-child td,
-  .table colgroup + thead tr:first-child th,
-  .table colgroup + thead tr:first-child td,
-  .table thead:first-child tr:first-child th,
-  .table thead:first-child tr:first-child td {
-    border-top: 0;
-  }
-
-  .table tbody + tbody {
-    border-top: 2px solid #dddddd;
-  }
-
-  .table .table {
-    background-color: #ffffff;
+  li.card-check {
+    display: block;
+    margin-left: 5px;
   }
 
   </style>
@@ -90,22 +59,23 @@
             <h2>Brown's Criterion</h2>
           </div>
           <div class = 'spaced-row'>
-            Think of a number from 1 to 31. Done? Great, now, check the 5 horizontal lists below and tick the ones that contain your number. I'll try guessing your number. 
+            Think of a number from 1 to 31. Done? Great, now, check the 5 lists below and tick the ones that contain your number. I'll try guessing your number. 
           </div>
           <div class = 'numbers'>
             <script id="cards-template" type="text/x-handlebars-template">
-            <table class = 'table'>
-            {{#each cards}}
-            <tr>
-            <td><input type = 'checkbox' value = {{@key}}></td>
-            {{#each this}}
-            <td>
-            {{this}}
-            </td>
-            {{/each}}
-            </tr>
-            {{/each}}
-            </table>
+              <div class = 'row'>
+              {{#each cards}}
+                  <div class="threecol" style = 'margin-right:10%;margin-bottom:30px;'>
+                    <ul class = 'card'>
+                    {{#each this}}
+                      <li>{{this}}</li>
+                    {{/each}}
+                    </ul>
+                    <hr>
+                    <li class = 'card-check'><input type = 'checkbox' value = {{@key}}></li>
+                  </div>
+              {{/each}}
+              </div>
             </script>
           </div>
           <div id = 'content-placeholder'></div>
