@@ -3,7 +3,7 @@
 /* ============================== */
 
 	body {
-	  background: #4c4c4c;
+	  background: #2b2a2a;
 	  line-height: 24px;
 	}
 
@@ -14,9 +14,6 @@
     padding: 20px;
 	  font-size: 15px;
 	  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	  margin-top: 20px;
-	  border-top-right-radius: 6px;
-	  border-top-left-radius: 6px;
   }
 
   p {
@@ -69,11 +66,11 @@
 
   .content {
     margin-top: 10px;
+    overflow: auto;
   }
 
   ul.articles {
     list-style-type: none;
-
   }
 
   ul.articles li {
@@ -98,6 +95,33 @@
     text-align:justify;
   }
 
+  ul.home-posts {
+    list-style-type: none;
+  }
+
+  ul.home-posts li {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #b2b2b2;
+    text-align: left;
+  }
+
+  ul.home-posts li h2 a {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 16px;
+  }
+
+  ul.home-posts li p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    line-height: 1.4em;
+    text-align:justify;
+  }
+
+
   ol {
     padding-left: 30px;
   }
@@ -121,6 +145,31 @@
   display:inline;
   }
 
+  .portfolio-project {
+    overflow: auto;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 10px;
+  }
+  .portfolio-project:before { 
+    display: block; 
+    content: " "; 
+    margin-top: -285px; 
+    height: 285px; 
+    visibility: hidden; 
+  }
+  .portfolio-project-title {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  h2.project-type {
+    border-bottom: 1px solid #b2b2b2;
+  }
+  .portfolio-project-desc {
+  }
+
   .details {
     color: #a2a2a2;
     font-size: 13px;
@@ -136,14 +185,15 @@
     font-size: 20px;
   }
 
-  .article-content {
-    margin-top: 10px;
+  span.article-content {
+/*    margin-top: 10px;
     margin-bottom: 10px;
+*/    color: #302C25;
+    /*text-align: justify;*/
   }
 
   .article-content p {
     margin-bottom: 7px;
-    text-align: justify;
   }
 
   a {
@@ -166,8 +216,6 @@
     background: #eee;
     padding: 10px;
     text-align: center;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
     margin-bottom: 20px;
   }
 

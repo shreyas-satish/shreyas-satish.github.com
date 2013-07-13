@@ -4,20 +4,36 @@ title: Shreyas Satish
 ---
 
 <div class = 'content'>
-  <div class = 'self-photo'>
-    <img src = "/media/shreyas.png" alt = "shreyas" />
+  <p>
+    Hey. I'm Shreyas Satish, and I live in Bangalore, India. I work as an engineer at <a href = "http://mapunity.in" target="_blank">Mapunity</a>. At Mapunity, I'm currently the lead developer on <a href="http://technagara.in" target="_blank">Technagara</a>, a collection of domain platforms for cities. 
+  </p>
+  <div class = 'fivecol'>
+  <h3>Latest <a href="/blog">Blog Posts</a></h3>
+  <hr>
+  <ul class = 'home-posts'>
+   {% for post in site.categories["blog"] %}
+     <li>
+       <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+       <div class = 'details'>
+         {{ post.date | date_to_string }}
+       </div>
+     </li>
+   {% endfor %}
+  </ul>
   </div>
-  <p>
-  I'm Shreyas Satish, and I live in Bangalore, India. I work as an engineer at <a href = "http://mapunity.in" target="_blank">Mapunity</a>. I graduated in 2010 with an engineering degree in Information Science. 
-  </p>
-
-  <p>
-  At Mapunity, I'm currently developing <a href="http://technagara.in" target="_blank">Technagara</a>, a City Management System, a Bangalore instance of which, is <a href = "http://bcity.in" target="_blank">bcity</a>.
-  </p>
-
-  <p>
-  I love and use Open Source software. I usually program in Ruby, JavaScript and CoffeeScript. I've been fortunate to have been using some awesome libraries/frameworks like Ruby on Rails, jQuery, PostgreSQL, Open Layers for a while now. Also,  I wrote <a href="http://github.com/shreyas-satish/worldview" target="_blank">WorldView</a>, a wrapper/extension to OpenLayers to make working with OpenLayers, hence maps, trivial.
-  </p>
-
+  <div class = 'fivecol'>
+    <h3>Latest <a href="/demos">Demos</a></h3>
+    <hr>
+    <ul class = 'home-posts'>
+     {% for post in site.categories["demos"] %}
+       <li>
+         <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+         <div class = 'details'>
+           {{ post.date | date_to_string }}
+         </div>
+       </li>
+     {% endfor %}
+    </ul>
+  </div>
 </div>
 
