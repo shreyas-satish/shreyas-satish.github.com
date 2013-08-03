@@ -243,3 +243,11 @@
 
 }
 
+.story {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #b5b5b5;
+  padding-bottom: 10px;
+}
+.story h4 {
+  font-size: 20px;
+}
