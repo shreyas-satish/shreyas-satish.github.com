@@ -1,0 +1,142 @@
+---
+layout: false
+title: Game of Life
+comments: false
+categories: demos
+---
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us" ng-app>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Game of Life</title>
+  <meta name="author" content="Shreyas Satish" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 1140px Grid styles for IE -->
+  <!--[if lte IE 9]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" /><![endif]-->
+
+  <!-- The 1140px Grid - http://cssgrid.net/ -->
+  <link rel="stylesheet" href="/css/1140.css" type="text/css" media="screen" />
+
+  <!-- Your styles -->
+  <link rel="stylesheet" href="/css/styles.css" type="text/css" media="screen" />
+
+  <!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
+  <script type="text/javascript" src="/javascripts/css3-mediaqueries.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>-->
+  <script type="text/javascript" src = '/javascripts/handlebars.js'></script>
+  <script type="text/javascript" src = '/javascripts/gameoflife.js'></script>
+  <title>Game of Life</title>
+  <style type="text/css">
+    .spaced-row {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    
+    ul.card {
+      text-align: left;
+      padding-left: 10px;
+    }
+
+    ul.card li {
+      display: inline;
+      list-style-type: none;
+      padding-right: 22px;
+      margin-right: 0;
+      border-left: none;
+      padding-left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class = 'container'>
+    <div class = 'row'>
+      <div class = 'onecol'></div>
+      <div class = 'tencol'>
+        <div class = 'site-content'>
+          <div id = 'header'>
+            <h2>Game of Life</h2>
+          </div>
+          <div class = 'spaced-row'>
+            <script id="cards-template" type="text/x-handlebars-template">
+            {% raw %}
+            <div class="threecol" style = 'margin-right:10%;margin-bottom:30px;'></div>
+            <div class="sixcol" style = 'margin-right:10%;margin-bottom:30px;'>
+              <ul>
+                {{#each worldRow}}
+                  <ul class = 'card'>
+                  {{#each this}}
+                    {{#if this.alive}}
+                      <li>X</li>
+                    {{else}}
+                      <li>.</li>
+                    {{/if}}
+                  {{/each}}
+                  </ul>
+                {{/each}}
+              </ul>
+            </div>
+            {% endraw %}
+            </script>
+          </div>
+          <div id = 'content-placeholder'></div>
+          <div class="threecol" style = 'margin-right:10%;margin-bottom:30px;'></div>
+          <div class="threecol" style = 'margin-right:10%;margin-bottom:30px;'>
+            <button href='javascript:void(0);' id='step'>Step</a>
+          </div>
+        </div>
+        <div id = 'footer'>
+          Created by <a href="http://shreyas.io">Shreyas Satish</a>.
+        </div>
+      </div>
+      <div class = 'onecol last'></div>
+    </div>
+  </div>
+  <script type="text/javascript">
+  $(function(){
+    // var startingGrid = [
+    //   ['x', '.', 'x', 'x'],
+    //   ['.', 'x', '.', '.'],
+    //   ['x', '.', '.', 'x'],
+    //   ['x', '.', '.', '.']
+    // ];
+    var startingGrid = [
+      ['.', '.', '.', '.', '.', '.'],
+      ['.', '.', '.', '.', 'x', '.'],
+      ['.', '.', 'x', '.', 'x', '.'],
+      ['.', '.', '.', 'x', 'x', '.'],
+      ['.', '.', '.', '.', '.', '.'],
+      ['.', '.', '.', '.', '.', '.']
+    ];
+
+    window.world = Controller.populateWorld(startingGrid);
+    // while (true) {
+    // }
+    window.displayWorld = function(w) {
+      // console.log(w);
+      data = {worldRow: w}
+      var source   = $("#cards-template").html();
+      var template = Handlebars.compile(source);
+      $("#content-placeholder").html(template(data));
+    }
+
+    var runSimulation = function() {
+      world = Controller.updateWorld(world);
+      displayWorld(world);
+    }
+    
+    displayWorld(world);
+    
+    $('#step').on("click", function(event){
+      console.log("click")
+      runSimulation();
+    });
+
+    
+  });
+  </script>
+</body>
+</html>

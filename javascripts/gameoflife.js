@@ -23,7 +23,7 @@
 
   var Controller = {
     populateWorld: function (startingGrid) {
-      var world = [];
+      var initialWorld = [];
       // true is alive
       var symbolStatusMap = {
         'x': true,
@@ -32,13 +32,16 @@
 
       for (var x = 0; x < startingGrid.length; x++) {
         for (var y = 0; y < startingGrid[x].length; y++) {
-          if (!world[x]) {
-            world[x] = [];
+          if (!initialWorld[x]) {
+            initialWorld[x] = [];
           }
-          world[x][y] = new Cell(new Position(x, y), symbolStatusMap[startingGrid[x][y]]);
+          // console.log(symbolStatusMap[startingGrid[x][y]]);
+          initialWorld[x][y] = new Cell(new Position(x, y), symbolStatusMap[startingGrid[x][y]]);
         }
       };
-      return world;
+          console.log(initialWorld);
+          console.log("in pW")
+      return initialWorld;
     },
     updateWorld: function (world) {
       for (var rowIndex = 0; rowIndex < world.length; rowIndex++) {
@@ -69,6 +72,7 @@
     this.position = position;
     this.alive = alive && true;
     this.was_alive = this.alive;
+    console.log(this.alive);
   }
 
   Cell.prototype.aliveNeighboursCount = function(world) {
