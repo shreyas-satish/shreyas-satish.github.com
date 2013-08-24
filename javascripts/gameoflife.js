@@ -38,12 +38,9 @@
           if (!initialWorld[x]) {
             initialWorld[x] = [];
           }
-          // console.log(symbolStatusMap[startingGrid[x][y]]);
           initialWorld[x][y] = new Cell(new Position(x, y), symbolStatusMap[startingGrid[x][y]]);
         }
       };
-          console.log(initialWorld);
-          console.log("in pW")
       return initialWorld;
     },
     updateWorld: function (world) {
@@ -51,15 +48,20 @@
         for (var cellIndex = 0; cellIndex < world[rowIndex].length; cellIndex++) {
           world[rowIndex][cellIndex].was_alive = world[rowIndex][cellIndex].alive;
           var aliveNeighboursCount = world[rowIndex][cellIndex].aliveNeighboursCount(world);
+          
+          // Cell becomes/stays alive if too few or too many alive neighbors
           if ((aliveNeighboursCount < 2) || (aliveNeighboursCount > 3)) {
             world[rowIndex][cellIndex].alive = false;
           }
+          // Dead cell comes to life amongst 3 alive neighbours
           else if (!world[rowIndex][cellIndex].alive && aliveNeighboursCount === 3) {
             world[rowIndex][cellIndex].alive = true;
           }
+          // Alive cell with 2 or 3 neighbours stays alive
           else if (world[rowIndex][cellIndex].alive) {
             world[rowIndex][cellIndex].alive = true;
           }
+          
         };
       };
       for (rowIndex = 0; rowIndex < world.length; rowIndex++) {
@@ -71,6 +73,10 @@
     }
   }
 
+  // All the cells have to be updated simultaneously. So, at t1, if cell no. 1
+  // has it's 'alive' status changed (status to be represented in t2),
+  // we store the cell 1's status at t1 in the was_alive property,
+  // which allows us to simulate a 'concurrent' process.
   function Cell (position, alive) {
     this.position = position;
     this.alive = alive && true;
@@ -96,6 +102,7 @@
     this.y = y;
   }
 
+  // The grid system used here is Cartesian.
   Position.prototype.neighbors = function(rowUpperBound, colUpperBound) {
     var x = this.x;
     var y = this.y;
@@ -123,6 +130,7 @@
   }
 
   window.Controller = Controller;
+
   // Support for unsupported browsers.
   if (!Array.prototype.forEach) {
     Array.prototype.forEach = function (fn, scope) {
