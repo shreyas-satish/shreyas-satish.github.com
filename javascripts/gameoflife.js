@@ -57,11 +57,7 @@
           else if (!world[rowIndex][cellIndex].alive && aliveNeighboursCount === 3) {
             world[rowIndex][cellIndex].alive = true;
           }
-          // Alive cell with 2 or 3 neighbours stays alive
-          else if (world[rowIndex][cellIndex].alive) {
-            world[rowIndex][cellIndex].alive = true;
-          }
-          
+         
         };
       };
       for (rowIndex = 0; rowIndex < world.length; rowIndex++) {
