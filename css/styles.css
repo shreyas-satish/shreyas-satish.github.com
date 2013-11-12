@@ -160,12 +160,10 @@
   }
   .portfolio-project-title {
     font-size: 18px;
-    margin-top: 10px;
     margin-bottom: 20px;
   }
 
   h2.project-type {
-    border-bottom: 1px solid #b2b2b2;
   }
   .portfolio-project-desc {
   }
