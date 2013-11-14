@@ -33,8 +33,7 @@ categories: demos
           <div class="col-md-4"> 
           </div>
           <div class="col-md-2"> 
-            <select class="form-control pattern-select" ng-model="configs.option" ng-change="reset(configs.option)">
-              <option value="">Load Pattern</option>
+            <select class="form-control pattern-select" ng-model="configs.option" ng-init="configs.option='glider'" ng-change="reset(configs.option)">
               <option value="glider">Glider</option>
               <option value="slider">Slider</option>
               <option value="toad">Toad</option>
@@ -52,7 +51,7 @@ categories: demos
         <div class="col-md-12"> 
           <p>
           <div class="well well-sm">
-            Click on a region to toggle the state of the cell. Feel free to toggle the state of the cell while the simulation is running. It can lead to some interesting deviations!
+            Click on "Start" to kickstart the simulation. You can also click on any region in the box to toggle the state of a cell in that region. Feel free to toggle the state of the cell while the simulation is running. It can lead to some interesting deviations!
           </div>
           </p>
         </div>
@@ -79,10 +78,10 @@ categories: demos
               This is a an open source JavaScript implementation of <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life" target="_blank">Conway's Game of Life</a>. Source is available at <a href="https://github.com/shreyas-satish/fun/tree/master/game_of_life" target="_blank">here</a>.
               </p>
               <p>
-              The Game of Life, put simply, is a 'game' that simulates evolution. The game consists of a 'world' filled with the building blocks of life. For the sake of simplicity, let's think of them as cells, where cells are either alive or dead. The game is kickstarted using a pattern of alive cells. This initial pattern constitutes the first generation[0] of life. With each generation this initial pattern or form of 'life' goes through various mutations, resulting in a multitude of varied patterns of 'life'. The way these patterns generated are governed by a set of rules.
+              The Game of Life, is a 'game' that, in a broad sense, simulates evolution. The game consists of a 'world' filled with the building blocks of life. For the sake of simplicity, let's think of them as cells, where cells are either alive or dead. The game is kickstarted using a pattern of alive cells. This initial pattern constitutes the first generation[0] of life. With each generation, this initial pattern or form of 'life' goes through various mutations, resulting in a multitude of varied patterns of 'life'. The way these patterns generated are governed by a set of rules.
               </p>
               <p>
-              [0] On evolutionary timescales can range from a thousand to a million years.
+              [0] On evolutionary timescales, a generation can range from a thousand to a million years.
               </p>
             </div>
           </div>
