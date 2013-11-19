@@ -4,13 +4,13 @@ title: Technagara
 categories: blog
 date: 3rd August, 2013 
 ---
-<div class = 'page-header'>
-  <h2 class = 'article-header'>
-    Technagara
-  </h2>
-  <div class = 'details'>
-    3rd August, 2013 
-  </div>
+<div class='row'>
+<div class='col-md-12'>
+<header>
+<h1>Technagara</h1>
+3rd August, 2013 
+</header>
+</div>
 </div>
 Technagara has been my primary focus at Mapunity for the good part of my 3 years at <a href="http://mapunity.in" target="_blank">Mapunity</a>. I have been the lead developer on the project (and the only developer for most parts) which included <a href="http://ashwinmahesh.in" target="_blank">Ashwin Mahesh</a> (Mapunity's CEO), developers, content developers, multiple designers and citizen groups. Let's get the customary disclaimer out of the way. This essay is purely a personal perspective and does not reflect Mapunity's official position on the project.
 

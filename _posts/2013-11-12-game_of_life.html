@@ -12,15 +12,16 @@ categories: demos
     <meta name="author" content="Shreyas Satish" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game of Life</title>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/readable/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
     <script data-require="angular.js@*" data-semver="1.2.0-nonmin" src="http://code.angularjs.org/1.2.0/angular.js"></script>
     <link rel="stylesheet" href="/css/game_of_life.css" />
-    <!--<script src="gol.js"></script>-->
     <script src="/javascripts/game_of_life.js"></script>
   </head>
 
   <body ng-app="App">
     <div class='container' ng-controller="MainCtrl">
+      {% include header.html %}  
       <div class='row'>
         <div class='col-md-12'>
           <header>

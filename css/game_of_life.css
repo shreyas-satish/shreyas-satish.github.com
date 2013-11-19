@@ -9,11 +9,6 @@ td {
   border: 1px solid #000;
 }
 
-header {
-  border-bottom: 1px solid #f2f2f2;
-  padding-bottom: 10px;
-  text-align: center
-}
 .toolbar {
   text-align: center;
   margin-top: 20px;
@@ -31,8 +26,4 @@ header {
 
 }
 
-footer {
-  text-align: center;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
+

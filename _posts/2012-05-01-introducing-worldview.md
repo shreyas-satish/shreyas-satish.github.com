@@ -4,15 +4,14 @@ title: Introducing WorldView, an easier way to use OpenLayers.
 categories: blog
 date: 4th May, 2012 
 ---
-<div class = 'page-header'>
-  <h2 class = 'article-header'>
-    Introducing WorldView
-  </h2>
-  <div class = 'details'>
-    4th May, 2012
-  </div>
+<div class='row'>
+<div class='col-md-12'>
+<header>
+<h1>Introducing WorldView</h1>
+4th May, 2012
+</header>
 </div>
-
+</div>
 I wrote <a href = "https://github.com/shreyas-satish/worldview" target="_blank">WorldView</a> to solve a couple of simple, recurring problems while using <a href = "http://openlayers.org" target="_blank">OpenLayers</a>. Nothing more. While OpenLayers is a powerful mapping library, it can be cumbersome at times. Christopher Schmidt-one of the lead developers of OpenLayers-had this to say :
 
 > The OpenLayers API is difficult to get started with for many simple problems. It can be hard to use, confusing to start, and difficult to understand for solving simple problems. 
