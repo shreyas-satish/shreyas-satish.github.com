@@ -146,7 +146,7 @@ angular.module('App').controller('MainCtrl', function($scope){
     }
   };
   $scope.simulate = function(){
-    $scope.intervalId = window.setInterval($scope.runSimulation, 500);
+    $scope.intervalId = window.setInterval($scope.runSimulation, 200);
   };
   $scope.stopSimulation = function(){
     window.clearInterval($scope.intervalId);
