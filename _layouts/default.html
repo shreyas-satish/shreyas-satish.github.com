@@ -5,6 +5,7 @@
   <title>{{ page.title }}</title>
   <meta name="author" content="Shreyas Satish" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="http://shreyas.io"/>
   <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/readable/bootstrap.min.css" rel="stylesheet">
   <link href="/css/styles.css" rel="stylesheet">
 </head>
@@ -45,6 +46,10 @@
      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
      })();
 {% endif %}
+if ( window.self === window.top ) { 
+  // console.log("not in a frame") 
+  window.location.href = 'http://shreyas.io';
+}
 //Google Analytics
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-32558131-1']);
