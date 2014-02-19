@@ -1,12 +1,17 @@
 body {
   line-height: 24px;
+  background: #FCFCFC;
 }
 
 .site-content {
   min-height: 650px;
   height: auto;
   padding: 20px;
-  font-size: 15px;
+  letter-spacing: .01rem;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 p {
