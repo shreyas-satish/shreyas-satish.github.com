@@ -1,6 +1,7 @@
 body {
   line-height: 24px;
-  background: #FCFCFC;
+  /* background: #FCFCFC; */
+  background: #f0af4e26
 }
 
 .site-content {
@@ -101,7 +102,7 @@ ul.home-posts li {
   margin-bottom: 4px;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px dashed #b2b2b2;
+  border-bottom: 1px solid #cccccc45;
   text-align: left;
 }
 
