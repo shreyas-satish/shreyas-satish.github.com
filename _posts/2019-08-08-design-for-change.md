@@ -34,4 +34,8 @@ This has stayed with me since, and at the time, I didn’t quite get that our ed
 
 The bigger point here is that jobs are going to transform, and circumstances are going to change. We don’t really have an education system that’s cohesively designed for change.
 
-So, how could this alternative look like? That's something I'm exploring with [ownpath](https://ownpath.xyz/), and on which I will write more on. Updates on [twitter](https://twitter.com/shreyas_satish).
+At the time of this writing, my mother starts her master's degree at a university. While she's pursuing learning for its own sake, she would have loved a more career-oriented reskilling opportunity early on.
+
+So, how could an alternative to the traditional education system look like? That's something I'm exploring with [ownpath](https://ownpath.xyz/), and on which I will write more on. Updates will be posted on [twitter](https://twitter.com/shreyas_satish).
+
+_Thanks to Sanchit Satish for reading a draft of this_.
