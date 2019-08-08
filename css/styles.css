@@ -11,14 +11,14 @@ body {
   letter-spacing: .01rem;
   font-weight: 400;
   font-style: normal;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.5;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
 p {
-  line-height: 1.6em;
-  margin: 10px 0px 10px 0px;
+  line-height: 1.575em;
+  margin: 14px 0px 14px 0px;
 }
 
 .self-img {

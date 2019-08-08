@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Technagara
+permalink: /blog/technagara
 categories: index
 date: 3rd August, 2013 
 summary: On building a grievance redressal system and a city information portal for Bangalore.
