@@ -16,13 +16,13 @@ summary: How can we imagine an education system that's designed for change?
 	</div>
 </div>
 
-A lot of us chose our career paths, or were pretty much chosen for us when we were teenagers. But, our aspirations tend to change over time and so do our circumstances. Take bank cashiers for instance. My mother used to be one, at a national Indian bank.
+A lot of us chose our career paths, or were pretty much chosen for us when we were teenagers. But, our aspirations tend to change over time and so do our circumstances. Take bank cashiers for instance. My mother used to be one, at a national Indian bank. Until I happened.
 
-She quit her job so she could care for me. A job she loved as it helped her live her life as an independent working woman. And after me, like a lot of mothers, she had to depend on my dad. Not that my dad isn't a decent person, but more that it's an unfortunate circumstance of the patriarchial society we live in.
+After that, she quit her job so she could care for me. A job she loved as it helped her live her life as an independent working woman. And after me, like a lot of mothers, she had to depend on my dad.
 
 By the time she felt ready to go back to work, ATMs had started becoming the norm. This had an interesting economic effect. Since the productivity of the banks went up, they were able to open more branches and hire more people. Not to dispense cash, but to service customers directly.
 
-So, the skills that cashiers previously required, like being able to count notes as quickly and accurately as possible, became mostly irrelevant. What became important now was to understand problems that their customers were having, wrestle with software that barely worked, and sell financial services.
+So, the skills that cashiers previously required were simply not sufficient, and in some cases, mostly irrelevant. What became important now was to understand problems that their customers were having, wrestle with software that barely worked, and sell financial services.
 
 This trend of routine tasks in jobs being automated away, has only accelerated since at a breathtaking pace. Fast forward to now, we are starting to have serious conversations about cars driving themselves, drones delivering stuff, fully automated manufacturing units, and what not. 
 

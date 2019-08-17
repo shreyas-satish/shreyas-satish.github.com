@@ -200,7 +200,6 @@ a:hover {color:#0077cc;}  /* mouse over link */
 a:active {color:#0077cc;}  /* selected link */
 
 header {
-  border-bottom: 1px solid #f2f2f2;
   padding-bottom: 10px;
   text-align: center
 }
