@@ -43,6 +43,9 @@ summary: 2020 has seen some bizarre news. Here are some headlines, can you tell 
             <span>{{currentResult}}</span>
             {{newsHeadlines[currentIndex].ans}} <a v-bind:href="newsHeadlines[currentIndex].link" target="_blank">(Source)</a>
           </p>
+          <p v-if="quizDone">
+            😅 You scored {{currentScore}}/10. <a href="https://www.shreyas.io/demo/bizarre-news-1">Share the quiz with your friends</a>.
+          </p>
           <p>
             <a href="javascript:void(0);" v-if="this.currentIndex + 1 < newsHeadlines.length" v-on:click="nextQ">Next Question 👉</a>
           </p>
@@ -69,7 +72,8 @@ summary: 2020 has seen some bizarre news. Here are some headlines, can you tell 
       currentIndex: 0,
       currentScore: 0,
       mode: 'q',
-      currentResult: '❌'
+      currentResult: '❌',
+      quizDone: false
     },
     methods: {
       ansQ: function (ans) {
@@ -78,6 +82,12 @@ summary: 2020 has seen some bizarre news. Here are some headlines, can you tell 
           this.currentResult = '✅';
         }
         this.mode = 'a';
+
+        // Mark on the 2nd last question
+        if (this.currentIndex + 1 === this.newsHeadlines.length){
+          this.quizDone = true;
+        }
+
       },
       checkAns: function(ans) {
         return ans === newsHeadlines[this.currentIndex].ans;
@@ -87,6 +97,7 @@ summary: 2020 has seen some bizarre news. Here are some headlines, can you tell 
         if ((this.currentIndex + 1) < this.newsHeadlines.length) {
           this.currentIndex += 1;
         }
+
         this.currentResult = '❌';
       }
     }
