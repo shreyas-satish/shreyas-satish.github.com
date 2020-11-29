@@ -64,12 +64,9 @@ summary: 2020 has seen some bizarre news. Here are some headlines, can you tell 
 
 
 <script type="text/javascript">
-  var newsHeadlines = JSON.parse(decodeURIComponent("{{ site.data.BizarreNews | jsonify | uri_escape  }}"));
-  newsHeadlines = newsHeadlines.filter(function(piece){
+  var newsHeadlines = JSON.parse(decodeURIComponent("{{ site.data.BizarreNews | jsonify | uri_escape  }}")).filter(function(piece){
     return piece.active;
-  })
-
-  console.log(newsHeadlines);
+  });;
 
   var app = new Vue({
     el: '#app',
@@ -89,11 +86,9 @@ summary: 2020 has seen some bizarre news. Here are some headlines, can you tell 
         }
         this.mode = 'a';
 
-        // Mark on the 2nd last question
         if (this.currentIndex + 1 === this.newsHeadlines.length){
           this.quizDone = true;
         }
-
       },
       checkAns: function(ans) {
         return ans === newsHeadlines[this.currentIndex].ans;
