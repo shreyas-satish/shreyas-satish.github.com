@@ -1,0 +1,94 @@
+---
+layout: default
+title: Bizarre News 1
+comments: false
+categories: index
+permalink: /demo/bizarre-news-1
+summary: 2020 has seen some bizarre news. Here are some headlines, can you tell the real ones from satire?
+---
+
+<div class='row'>
+  <div class='col-md-12'>
+  <header>
+  <h1 class='font-weight-bold'>Bizarre News (Part 1)</h1>
+  29th November, 2020
+  </header>
+  </div>
+</div>
+
+<p>
+2020 has seen some bizarre news. Here are some headlines, can you tell the real ones from satire?
+</p>
+
+<div id="app">
+  {% raw %}
+  <div class="card" style="width: 100%;">
+    <div class="card-body">
+      <div class='mb-4'>
+        <span class='mr-4'>
+          ❓Question: {{currentIndex + 1}}/10
+        </span>
+        <span class='mt-4'>
+          🎯 Score: {{currentScore}}/10
+        </span>
+      </div>
+      <h3 class="card-title font-weight-bold">{{newsHeadlines[currentIndex].name}}</h3>
+      <p class="card-text mr-4">
+        <div v-if="mode == 'q'">
+          <a href="javascript:void(0);" class="mr-4" v-on:click="ansQ('Real')">🤔Real</a>
+          <a href="javascript:void(0);" class="" v-on:click="ansQ('Satire')">😂Satire</a>
+        </div>
+        <div v-if="mode == 'a'">
+          <p class='font-weight-bold'>
+            <span>{{currentResult}}</span>
+            {{newsHeadlines[currentIndex].ans}} <a v-bind:href="newsHeadlines[currentIndex].link" target="_blank">(Source)</a>
+          </p>
+          <p>
+            <a href="javascript:void(0);" v-if="this.currentIndex + 1 < newsHeadlines.length" v-on:click="nextQ">Next Question 👉</a>
+          </p>
+        </div>
+      </p>
+    </div>
+  </div>
+  {% endraw %}
+</div>
+
+
+<script type="text/javascript">
+  var newsHeadlines = JSON.parse(decodeURIComponent("{{ site.data.BizarreNews | jsonify | uri_escape  }}"));
+  newsHeadlines = newsHeadlines.filter(function(piece){
+    return piece.active;
+  })
+
+  console.log(newsHeadlines);
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      newsHeadlines: newsHeadlines,
+      currentIndex: 0,
+      currentScore: 0,
+      mode: 'q',
+      currentResult: '❌'
+    },
+    methods: {
+      ansQ: function (ans) {
+        if (this.checkAns(ans)){
+          this.currentScore += 1;
+          this.currentResult = '✅';
+        }
+        this.mode = 'a';
+      },
+      checkAns: function(ans) {
+        return ans === newsHeadlines[this.currentIndex].ans;
+      },
+      nextQ: function(){
+        this.mode = 'q';
+        if ((this.currentIndex + 1) < this.newsHeadlines.length) {
+          this.currentIndex += 1;
+        }
+        this.currentResult = '❌';
+      }
+    }
+  })
+</script>
