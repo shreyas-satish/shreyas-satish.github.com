@@ -34,7 +34,7 @@ body  #header {
 body  #header h1 {
   font-size: 22px;
   text-align: center;
-  font-weight: normal;
+  font-weight: bold;
   line-height: 1.2em;
   margin-bottom: 10px;
 }
@@ -199,9 +199,16 @@ a:hover {color:#0077cc;}  /* mouse over link */
 a:active {color:#0077cc;}  /* selected link */
 
 header {
-  padding-bottom: 10px;
-  text-align: center
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ece2e2;
+  padding-bottom: 20px;
 }
+
+header h1 {
+  font-weight: bold;
+}
+
 footer {
   text-align: center;
   margin-top: 5%;
@@ -220,4 +227,8 @@ footer {
 }
 .story h4 {
   font-size: 20px;
+}
+
+h3 {
+  margin-top: 1em;
 }
