@@ -59,7 +59,7 @@ The most straight-forward way to find a mentor is to identify someone you:
 
 You could also ask around to see if there's someone who specifically works on your topic of interest, in case they aren't in your immediate social network. In either case, if you can find a warm introduction, ask for one. But if not, it's usually okay to reach out directly.
 
-That said, please do not go to them with "Please mentor me". First impressions are important! Try things out for yourself first and then write to them with a genuine question. Here's an example you can use:
+That said, I strongly recommend reaching out *after* you've tried things out for yourself first. First impressions are important! Try things out for yourself first and then write to them with a genuine question you're struggling with. Here's an example you can use:
 
 "Hi X. I've been working on Y, I read this and I tried that, but I'm finding myself stuck. I noticed you've done Y and I really admire your work! Can I tell you more about what I've been working on? I'd love to know if you have any advice for me".
 
@@ -105,4 +105,4 @@ I strongly recommend doing this. If something works out, then everyone's happy. 
 
 That's pretty much it. I believe people generally want to help. Make it easy, fun, and interesting for them to help you!
 
-*Thank you Araxie Miller, Aruna Sank for reading drafts of this. Thank you Sidu Ponnappa, Rahul Gonsalves, Kristen McQuillin, Sameer Bhiwani, Araxie Miller, Tejas Bhatt, Steve Sule, and Abhinit Tiwari for being helpful in a myriad ways.*
+*Thank you Araxie Miller, Aruna Sank, and Steve Sule for reading drafts of this. Thank you Sidu Ponnappa, Rahul Gonsalves, Kristen McQuillin, Sameer Bhiwani, Araxie Miller, Tejas Bhatt, Steve Sule, and Abhinit Tiwari for being helpful in a myriad ways.*
