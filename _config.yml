@@ -20,6 +20,9 @@ maruku:
   png_dir:    images/latex
   png_url:    /images/latex
 
+include:
+  - fonts
+
 rdiscount:
   extensions: []
 
