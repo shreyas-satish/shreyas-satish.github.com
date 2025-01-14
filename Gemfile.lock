@@ -19,16 +19,16 @@ GEM
     ffi (1.17.1-x86_64-linux-gnu)
     ffi (1.17.1-x86_64-linux-musl)
     forwardable-extended (2.6.0)
-    jekyll (3.5.2)
+    jekyll (3.6.3)
       addressable (~> 2.4)
       colorator (~> 1.0)
       jekyll-sass-converter (~> 1.0)
       jekyll-watch (~> 1.1)
-      kramdown (~> 1.3)
+      kramdown (~> 1.14)
       liquid (~> 4.0)
       mercenary (~> 0.3.3)
       pathutil (~> 0.9)
-      rouge (~> 1.7)
+      rouge (>= 1.7, < 3)
       safe_yaml (~> 1.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
@@ -48,7 +48,7 @@ GEM
     rb-inotify (0.11.1)
       ffi (~> 1.0)
     rexml (3.4.0)
-    rouge (1.11.1)
+    rouge (2.2.1)
     safe_yaml (1.0.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -74,7 +74,7 @@ DEPENDENCIES
   base64
   bigdecimal
   csv
-  jekyll (~> 3.5.2)
+  jekyll (~> 3.6.3)
   logger
   rexml
   webrick
