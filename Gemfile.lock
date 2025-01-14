@@ -3,7 +3,9 @@ GEM
   specs:
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    base64 (0.2.0)
     colorator (1.1.0)
+    csv (3.3.2)
     ffi (1.17.1)
     ffi (1.17.1-aarch64-linux-gnu)
     ffi (1.17.1-aarch64-linux-musl)
@@ -36,6 +38,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    logger (1.6.5)
     mercenary (0.3.6)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
@@ -67,7 +70,10 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  base64
+  csv
   jekyll (~> 3.5.2)
+  logger
   rexml
   webrick
 
