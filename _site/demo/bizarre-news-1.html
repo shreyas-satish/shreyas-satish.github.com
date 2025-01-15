@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Bizarre News 1</title>
+  <meta name="author" content="Shreyas Satish" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="http://shreyas.io"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class = 'container'>
+    <div class = 'row'>
+      <div class = 'col-md-2'></div>
+      <div class = 'col-md-8'>
+        <div class = 'site-content'>
+          <div id = 'header'>
+  <div class = 'col-md-12'>
+    <h1 class='font-weight-bold'>Shreyas Satish</h1>
+  </div>
+  <div class = 'col-md-12'>
+    <ul class = 'horizontal-list'>
+      <li><a href="/">Home</a></li>
+      <li><a href="/work">Work</a></li>
+    </ul>
+  </div>
+</div>
+
+  
+          <div class='row'>
+  <div class='col-md-12'>
+  <header>
+  <h1 class='font-weight-bold'>Bizarre News (Part 1)</h1>
+  29th November, 2020
+  </header>
+  </div>
+</div>
+
+<p>
+2020 has seen some bizarre news. Here are some headlines, can you tell the real ones from satire?
+</p>
+
+<div id="app">
+  
+  <div class="card" style="width: 100%;">
+    <div class="card-body">
+      <div class='mb-4'>
+        <span class='mr-3'>
+          ❓ Question: {{currentIndex + 1}}/10
+        </span>
+        <span>
+          🎯 Score: {{currentScore}}/10
+        </span>
+      </div>
+      <h4 class="card-title font-weight-bold">{{newsHeadlines[currentIndex].name}}</h4>
+      <p class="card-text mr-4 mt-4">
+        <div v-if="mode == 'q'">
+          <a href="javascript:void(0);" class="mr-4" v-on:click="ansQ('Real')">🤔 Real</a>
+          <a href="javascript:void(0);" class="" v-on:click="ansQ('Satire')">😂 Satire</a>
+        </div>
+        <div v-if="mode == 'a'">
+          <p class='font-weight-bold'>
+            <span>{{currentResult}}</span>
+            {{newsHeadlines[currentIndex].ans}} <a rel="noopener noreferrer" v-bind:href="newsHeadlines[currentIndex].link" target="_blank">(Source)</a>
+          </p>
+          <div v-if="quizDone">
+            <p>
+              
+            </p>
+            😅 You scored {{currentScore}}/10. Share the quiz with your friends!
+            <p>
+              Found a bizarre headline? <a rel="noopener noreferrer" href="https://airtable.com/shr103iDsosBVIb7b" target="_blank">Share it here</a>.
+            </p>
+            <p>
+              PS: Special thanks to The Guardian, The Onion, et al for the juicy headlines.
+            </p>
+          </div>
+          <p>
+            <a href="javascript:void(0);" v-if="this.currentIndex + 1 < newsHeadlines.length" v-on:click="nextQ">Next Question 👉</a>
+          </p>
+        </div>
+      </p>
+    </div>
+  </div>
+  
+</div>
+
+
+<script type="text/javascript">
+  var newsHeadlines = JSON.parse(decodeURIComponent("[%7B%22name%22:%22Astrophysicist%20gets%20magnets%20stuck%20up%20nose%20while%20inventing%20coronavirus%20device%22,%22ans%22:%22Real%22,%22link%22:%22https://www.theguardian.com/australia-news/2020/mar/30/astrophysicist-gets-magnets-stuck-up-nose-while-inventing-coronavirus-device%22,%22active%22:true,%22id%22:%22recoCjQ9dl2WywYMs%22%7D,%7B%22name%22:%22Argentinian%20politician%20quits%20after%20kissing%20partner's%20breasts%20in%20online%20legislative%20session%22,%22ans%22:%22Real%22,%22link%22:%22https://www.theguardian.com/world/2020/sep/25/argentina-politician-breasts-online-debate%22,%22active%22:true,%22id%22:%22recgggEDGuI1Sk3Zs%22%7D,%7B%22name%22:%22Hundreds%20Of%20Years%20Of%20Race,%20Class%20Privilege%20Allow%20Man%20Extra%20Legroom%22,%22ans%22:%22Satire%22,%22link%22:%22https://local.theonion.com/hundreds-of-years-of-race-class-privilege-allow-man-ex-1845496935%22,%22active%22:true,%22id%22:%22recEcvDeeYs5jiT1D%22%7D,%7B%22name%22:%22Trump's%20Twitter%20hacked%20after%20Dutch%20researcher%20claims%20he%20guessed%20password%22,%22ans%22:%22Real%22,%22link%22:%22https://www.theguardian.com/us-news/2020/oct/22/trump-twitter-hacked-dutch-researcher-password%22,%22active%22:true,%22id%22:%22reccIwv5JnQHSMpcg%22%7D,%7B%22name%22:%22Protestors%20Criticized%20For%20Looting%20Businesses%20Without%20Forming%20Private%20Equity%20Firm%20First%22,%22ans%22:%22Satire%22,%22link%22:%22https://www.theonion.com/protestors-criticized-for-looting-businesses-without-fo-1843735351%22,%22active%22:true,%22id%22:%22rec29g1GsBeCIad9G%22%7D,%7B%22name%22:%22Xi%20Jinping%20Jails%20Chinese%20Tycoon%20For%20Failing%20To%20Use%20Sandwich%20Method%20Of%20Constructive%20Criticism%20When%20Condemning%20Him%22,%22ans%22:%22Satire%22,%22link%22:%22https://politics.theonion.com/xi-jinping-jails-chinese-tycoon-for-failing-to-use-sand-1845142504%22,%22active%22:true,%22id%22:%22recv1wyXK455FXFbl%22%7D,%7B%22name%22:%22Subway%20bread%20is%20not%20bread,%20Irish%20court%20rules%22,%22ans%22:%22Real%22,%22link%22:%22https://www.theguardian.com/world/2020/oct/01/irish-court-rules-subway-bread-is-not-bread%22,%22active%22:true,%22id%22:%22rec1YMakyyeKe65df%22%7D,%7B%22name%22:%22Trump%20Files%20Lawsuit%20In%20Pennsylvania%20Alleging%20Election%20Officials%20Totally%20Disregarding%20His%20Feelings%22,%22ans%22:%22Satire%22,%22link%22:%22https://www.theonion.com/trump-files-lawsuit-in-pennsylvania-alleging-election-o-1845587740%22,%22active%22:true,%22id%22:%22recD682OjVURnXSsr%22%7D,%7B%22name%22:%22Veggie%20Burgers%20Can%20Be%20Called%20Burgers,%20European%20Parliament%20Says%22,%22ans%22:%22Real%22,%22link%22:%22https://www.npr.org/2020/10/23/927278172/veggie-burgers-can-be-called-burgers-european-parliament-says%22,%22active%22:true,%22id%22:%22recYbjl3LcvxfYmCp%22%7D,%7B%22name%22:%22Russian%20'Sausage%20King'%20killed%20in%20sauna%20with%20a%20crossbow%22,%22ans%22:%22Real%22,%22link%22:%22https://www.bbc.com/news/world-europe-54782634%22,%22active%22:true,%22id%22:%22recsdmuVJj8IWlCRB%22%7D,%7B%22name%22:%22Metal%20monolith%20found%20by%20helicopter%20crew%20in%20Utah%20desert%22,%22link%22:%22https://www.bbc.com/news/world-us-canada-55056570%22,%22ans%22:%22Real%22,%22id%22:%22recildkCKBOkihEki%22%7D,%7B%22name%22:%22Fat%20bear%20week:%20America's%20most%20body%20positive%20contest%20nears%20climax%22,%22ans%22:%22Real%22,%22link%22:%22https://www.theguardian.com/environment/2020/oct/01/fat-bear-week-alaska-america-most-body-positive-contest%22,%22id%22:%22recPNUmnoK4YErcVd%22%7D,%7B%22name%22:%22Biden%20Campaigns%20Door-To-Door%20In%20JPMorgan%20Chase%20Headquarters%22,%22ans%22:%22Satire%22,%22link%22:%22https://politics.theonion.com/biden-campaigns-door-to-door-in-jpmorgan-chase-headquar-1845109310%22,%22id%22:%22rec0n8MtnVDNqiuW3%22%7D,%7B%22name%22:%22California%20Firefighters%20Massage%202.5%20Million%20Gallons%20Of%20Moisturizer%20Into%20Forests%20To%20Prevent%20Dryness%22,%22ans%22:%22Satire%22,%22link%22:%22https://www.theonion.com/california-firefighters-massage-2-5-million-gallons-of-1845159161%22,%22id%22:%22recKoBUlDvyca3dXM%22%7D,%7B%22name%22:%22Tesla%20launches%20$250%20Tequila,%20runs%20out%20in%20hours%22,%22ans%22:%22Real%22,%22link%22:%22https://www.reuters.com/article/us-tesla-beverages-idUSKBN27M10L%22,%22id%22:%22recW1hRJZHqQcThfN%22%7D,%7B%22name%22:%22Panicked%20Trump%20Agrees%20To%20Zoom%20Debate%22,%22ans%22:%22Satire%22,%22link%22:%22https://www.theonion.com/panicked-trump-agrees-to-zoom-debate-1845587345%22,%22id%22:%22recXToq4GPcAtkG2U%22%7D,%7B%22name%22:%22McDonald's%20confirms%20creation%20of%20McPlant%20plant-based%20burger%22,%22ans%22:%22Real%22,%22link%22:%22https://www.usatoday.com/story/money/food/2020/11/09/mcplant-mcdonalds-plant-based-burger-crispy-chicken-sandwich/6187977002/%22,%22id%22:%22rec6kLeS4OFA8wCYy%22%7D]")).filter(function(piece){
+    return piece.active;
+  });;
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      newsHeadlines: newsHeadlines,
+      currentIndex: 0,
+      currentScore: 0,
+      mode: 'q',
+      currentResult: '❌',
+      quizDone: false
+    },
+    methods: {
+      ansQ: function (ans) {
+        if (this.checkAns(ans)){
+          this.currentScore += 1;
+          this.currentResult = '✅';
+        }
+        this.mode = 'a';
+
+        if (this.currentIndex + 1 === this.newsHeadlines.length){
+          this.quizDone = true;
+        }
+      },
+      checkAns: function(ans) {
+        return ans === newsHeadlines[this.currentIndex].ans;
+      },
+      nextQ: function(){
+        this.mode = 'q';
+        if ((this.currentIndex + 1) < this.newsHeadlines.length) {
+          this.currentIndex += 1;
+        }
+
+        this.currentResult = '❌';
+      }
+    }
+  })
+</script>
+          <div id="disqus_thread"></div>
+          <p class='mt-4 font-italic'>
+            If you'd like to keep in touch, I post updates on <a href="https://twitter.com/shreyas_satish">Twitter</a> and <a href="https://www.linkedin.com/in/shreyassatish/">LinkedIn</a>.
+          </p>
+        </div>
+      </div>
+      <div class = 'col-md-2 last'></div>
+    </div>
+    <div class = 'row'>
+      <div class = 'col-md-2'></div>
+      <div class = 'col-md-8'>
+        <div id = 'footer'>
+        </div>
+      </div>
+      <div class = 'col-md-2'></div>
+    </div>
+  </div>
+  <script type="text/javascript">
+
+    
+</script>
+</body>
+</html>
+

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Brown</title>
+    <meta name="author" content="Shreyas Satish" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/readable/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script type="text/javascript" src = '/javascripts/brown.js'></script>
+    <script type="text/javascript" src = '/javascripts/handlebars.js'></script>
+    <title>Brown's Criterion</title>
+    <style type="text/css">
+      .spaced-row {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      ul.card {
+        text-align: left;
+        padding-left: 10px;
+      }
+
+      ul.card li {
+        display: inline;
+        list-style-type: none;
+        padding-right: 22px;
+        margin-right: 0;
+        border-left: none;
+        padding-left: 0;
+      }
+
+      li.card-check {
+        display: block;
+        margin-left: 5px;
+      }
+      .card-box {
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class = container>
+      <div class = 'row'>
+        <div class = 'col-md-1'></div>
+        <div class = 'col-md-10'>
+          <div class = 'site-content'>
+            <div id = 'header'>
+  <div class = 'col-md-12'>
+    <h1 class='font-weight-bold'>Shreyas Satish</h1>
+  </div>
+  <div class = 'col-md-12'>
+    <ul class = 'horizontal-list'>
+      <li><a href="/">Home</a></li>
+      <li><a href="/work">Work</a></li>
+    </ul>
+  </div>
+</div>
+
+  
+            <div class='row'>
+              <div class='col-md-12'>
+                <header>
+                <h1>Brown's Criterion</h1>
+                </header>
+              </div>
+            </div>
+            <div class = 'spaced-row'>
+              Think of a number from 1 to 31. Done? Great, now, check the 5 lists below and tick the ones that contain your number. I'll try guessing your number. 
+            </div>
+            <div class = 'numbers'>
+              <script id="cards-template" type="text/x-handlebars-template">
+                <div class = 'row'>
+                  
+                  {{#each cards}}
+                  <div class="col-md-3">
+                    <div class='card-box'>
+                      <ul class = 'card'>
+                        {{#each this}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                      </ul>
+                      <li class = 'card-check'><input type = 'checkbox' value = {{@key}}></li>
+                    </div>
+                  </div>
+                  {{/each}}
+                  
+                </div>
+              </script>
+            </div>
+            <div id = 'content-placeholder'></div>
+            <input type="submit" value="Guess My Number!" id = 'guess-trigger' />
+            <div class = 'reveal-content' style = 'display:none;'>
+              <hr>
+              <div class = 'spaced-row'>
+                <img src="http://imgs.xkcd.com/comics/psychic.png " alt = 'XKCD'><br>
+                Comic Source : <a href="http://xkcd.com/628/">XKCD</a>
+              </div>
+              <div class = 'spaced-row'>
+                <p>
+                <p>
+                But, we need a little more than 1%. So, the way the game you just played works, is as follows:
+                </p>
+                <p>
+                Every number turns out to be computable as a sum of some combination of the powers of 2. Using this piece of knowledge, the trick then is to, arrange the numbers in the lists in a way that, the number you had in mind, can be computed based on the lists your number was found in.
+                </p>
+                <p>
+                Let's take 25 as an example. Now, 25 happens to be equal to 1 + 8 + 16. Notice, 1, 8 and 16, are uniquely positioned as the first numbers of the first, fourth and fifth lists respectively and the number 25, appears in these lists only. So if you ticked these lists, the first number of each of these lists is taken and added up, and voila, we have your number!
+                </p>
+                <p>
+                This game is inspired from a numberphile video embedded below. 
+                </p>
+                </p>
+              </div>
+              <div class = 'spaced-row'>
+                <iframe width="100%" height="315" src="http://www.youtube.com/embed/kQZmZRE0cQY" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+            
+        </div>
+      </div>
+      <div class = 'col-md-1'></div>
+    </div>
+    <div class='row'>
+      <div class="col-md-12">
+        <footer>
+        Created by <a href="http://shreyas.io">Shreyas Satish</a>.
+        </footer>
+      </div>  
+    </div>  
+  </div>
+</div>
+<script type="text/javascript">
+  $(function(){
+
+      cards = Brown.initialize(5, 31);
+      data = {cards: cards}
+      var source   = $("#cards-template").html();
+      var template = Handlebars.compile(source);
+      $("#content-placeholder").html(template(data));
+
+      $("#guess-trigger").click(function(){
+        var number = getChosenNumber();
+        if (number === 0) {
+        alert("Please check the lists your number is present in.");
+        return false;
+        }
+        else {
+        alert("The number you have in mind is " + number.toString() + "!");
+        $('.reveal-content').show();
+        };
+        });
+
+      function getChosenNumber() {
+        var sum = 0;
+        $("input:checked").map(function() {
+            sum += parseInt($(this).val());
+            });
+        return sum;
+      };
+  });
+</script>
+</body>
+</html>

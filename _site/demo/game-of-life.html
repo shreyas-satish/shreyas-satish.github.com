@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Shreyas Satish" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game of Life</title>
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/readable/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    <script data-require="angular.js@*" data-semver="1.2.0-nonmin" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0/angular.min.js"></script>
+    <link rel="stylesheet" href="/css/game_of_life.css" />
+    <script src="/javascripts/game_of_life.js"></script>
+  </head>
+
+  <body ng-app="App">
+    <div class='container' ng-controller="MainCtrl">
+      <div id = 'header'>
+  <div class = 'col-md-12'>
+    <h1 class='font-weight-bold'>Shreyas Satish</h1>
+  </div>
+  <div class = 'col-md-12'>
+    <ul class = 'horizontal-list'>
+      <li><a href="/">Home</a></li>
+      <li><a href="/work">Work</a></li>
+    </ul>
+  </div>
+</div>
+
+  
+      <div class='row'>
+        <div class='col-md-12'>
+          <header>
+          <h1>Conway's Game of Life: A Simulation</h1>
+          </header>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='toolbar'>
+          <div class="col-md-4"> 
+          </div>
+          <div class="col-md-2"> 
+            <select class="form-control pattern-select" ng-model="configs.option" ng-init="configs.option='glider'" ng-change="reset(configs.option)">
+              <option value="glider">Glider</option>
+              <option value="slider">Slider</option>
+              <option value="toad">Toad</option>
+            </select>
+          </div>
+          <div class="col-md-6 action-btns"> 
+            <button type="button" class="btn btn-success" ng-click="simulate(10)">Start</button>
+            <button type="button" class="btn btn-warning" ng-click="runSimulation()">Step</button>
+            <button type="button" class="btn btn-danger" ng-click="stopSimulation()">Stop</button>
+            <button type="button" class="btn btn-info" ng-click="reset()">Reset</button>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class="col-md-12"> 
+          <p>
+          <div class="well well-sm">
+            Click on "Start" to kickstart the simulation. You can also click on any region in the box to toggle the state of a cell in that region. Feel free to toggle the state of the cell while the simulation is running. It can lead to some interesting deviations!
+          </div>
+          </p>
+        </div>
+      </div>
+      <div class='row'>
+        <div class="col-md-12"> 
+          <div class="table-responsive">
+            <table class='table'>
+              <tr ng-repeat="row in cells">
+                <td ng-repeat="cell in row track by $index" ng-class="{alive: cell.alive}" ng-click="toggleStatus(cell)"></td>
+              </tr>
+            </table>
+          </div>  
+        </div>  
+      </div>  
+      <div class='row'>
+        <div class="col-md-12"> 
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">About</h3>
+            </div>
+            <div class='panel-body'>
+              <p>
+              This is a an open source JavaScript implementation of <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life" target="_blank">Conway's Game of Life</a>. Source is available <a href="https://github.com/shreyas-satish/fun/tree/master/game_of_life" target="_blank">here</a>.
+              </p>
+              <p>
+              The Game of Life, is a 'game' that, in a broad sense, simulates evolution. The game consists of a 'world' filled with the building blocks of life. For the sake of simplicity, let's think of them as cells, where cells are either alive or dead. The game is kickstarted using a pattern of alive cells. This initial pattern constitutes the first generation[0] of life. With each generation, this initial pattern or form of 'life' goes through various mutations, resulting in a multitude of varied patterns of 'life'. The way these patterns generated are governed by a set of rules.
+              </p>
+              <p>
+              [0] On evolutionary timescales, a generation can range from a thousand to a million years.
+              </p>
+            </div>
+          </div>
+        </div>  
+        <div class="col-md-12"> 
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">See Also</h3>
+              </div>  <div class='panel-body'>
+              <ol>
+                <li><a href='http://edge.org/response-detail/10797'>Edge article</a></li>
+                <li><a href='http://www.kaggle.com/c/conway-s-reverse-game-of-life'>Reverse Game of Life</a></li>
+              </ol>
+            </div>
+          </div>
+        </div>  
+      </div>  
+      <div class='row'>
+        <div class="col-md-12">
+          <footer>
+          Created by <a href="http://shreyas.io">Shreyas Satish</a>.
+          </footer>
+        </div>  
+      </div>
+    </body>
+  </html>

@@ -1,0 +1,29 @@
+/* Styles go here */
+
+.alive {
+  background: #02a107;
+  width: 2px;
+}
+td {
+  background: #000;
+  border: 1px solid #000;
+}
+
+.toolbar {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+.pattern-select {
+  margin-bottom: 10px;
+}
+.action-btns {
+  text-align: left;
+}
+
+@media (min-width: ) {
+
+}
+
+
