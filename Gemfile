@@ -1,6 +1,5 @@
 source "https://rubygems.org"
-
-gem 'jekyll', '~> 3.5.2'
+gem 'jekyll', '~> 4.3.0'
 gem 'rexml'
 gem 'webrick'
 gem 'logger'
