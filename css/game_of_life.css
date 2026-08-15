@@ -1,8 +1,10 @@
 .life-main {
-  width: min(100%, 68rem);
+  width: min(100%, var(--page-max));
   margin: 0 auto;
   padding: var(--space-8) var(--gutter) var(--space-10);
 }
+
+.life-main > * { max-width: 68rem; }
 
 .life-intro {
   max-width: 42rem;
@@ -78,8 +80,8 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.life-board table { width: 100%; min-width: 32rem; border-spacing: 0; table-layout: fixed; }
-.life-board td { width: 3.333%; aspect-ratio: 1; border: 1px solid var(--color-game-grid); background: var(--color-game-board); cursor: crosshair; }
+.life-board table { width: 100%; min-width: 32rem; aspect-ratio: 1 / 1; border-spacing: 0; table-layout: fixed; }
+.life-board td { width: 3.333%; padding: 0; border: 1px solid var(--color-game-grid); background: var(--color-game-board); cursor: crosshair; }
 .life-board td.alive { background: var(--color-link); }
 .life-board td:hover { outline: 1px solid color-mix(in srgb, var(--color-text) 55%, transparent); outline-offset: -1px; }
 

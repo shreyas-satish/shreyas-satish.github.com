@@ -29,9 +29,6 @@
     <link href="/css/fira-go.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
     <link href="/css/brown.css" rel="stylesheet">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-    <script src="/javascripts/brown.js"></script>
-    <script src="/javascripts/handlebars.js"></script>
   </head>
   <body class="brown-page">
     <header class="site-header">
@@ -123,33 +120,10 @@
 </footer>
 
 
-    <script>
-      $(function () {
-        var cards = Brown.initialize(5, 31);
-        var source = $("#cards-template").html();
-        var template = Handlebars.compile(source);
-        $("#content-placeholder").html(template({ cards: cards }));
-
-        $("#guess-trigger").click(function () {
-          var number = getChosenNumber();
-          if (number === 0) {
-            $("#brown-result").text("Choose at least one list first.");
-            return;
-          }
-
-          $("#brown-result").text("Your number is " + number + ".");
-          $(".reveal-content").prop("hidden", false);
-        });
-
-        function getChosenNumber() {
-          var sum = 0;
-          $("input:checked").each(function () {
-            sum += parseInt($(this).val(), 10);
-          });
-          return sum;
-        }
-      });
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" defer></script>
+    <script src="/javascripts/brown.js" defer></script>
+    <script src="/javascripts/handlebars.js" defer></script>
+    <script src="/javascripts/brown-page.js" defer></script>
     <script>
   (function () {
     var root = document.documentElement;

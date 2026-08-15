@@ -1,4 +1,5 @@
-.brown-main { width: min(100%, 68rem); margin: 0 auto; padding: var(--space-8) var(--gutter) var(--space-10); }
+.brown-main { width: min(100%, var(--page-max)); margin: 0 auto; padding: var(--space-8) var(--gutter) var(--space-10); }
+.brown-main > * { max-width: 68rem; }
 .brown-intro { max-width: 43rem; margin-bottom: var(--space-8); }
 .brown-eyebrow { margin: 0 0 var(--space-3); color: var(--color-text-muted); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
 .brown-intro h1 { margin: 0 0 var(--space-4); font-size: clamp(2.5rem, 5.3vw, 4.3rem); font-weight: 500; letter-spacing: -0.055em; line-height: 0.98; }

@@ -2,7 +2,9 @@
 layout: default
 title: Bizarre News 1
 comments: false
-uses_vue: true
+scripts:
+  - https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js
+  - /javascripts/bizarre-news.js
 categories: index
 permalink: /demo/bizarre-news-1
 summary: 2020 has seen some bizarre news. Here are some headlines, can you tell the real ones from satire?
@@ -63,44 +65,4 @@ summary: 2020 has seen some bizarre news. Here are some headlines, can you tell 
 </div>
 
 
-<script type="text/javascript">
-  var newsHeadlines = JSON.parse(decodeURIComponent("{{ site.data.BizarreNews | jsonify | uri_escape  }}")).filter(function(piece){
-    return piece.active;
-  });;
-
-  var app = new Vue({
-    el: '#app',
-    data: {
-      newsHeadlines: newsHeadlines,
-      currentIndex: 0,
-      currentScore: 0,
-      mode: 'q',
-      currentResult: '❌',
-      quizDone: false
-    },
-    methods: {
-      ansQ: function (ans) {
-        if (this.checkAns(ans)){
-          this.currentScore += 1;
-          this.currentResult = '✅';
-        }
-        this.mode = 'a';
-
-        if (this.currentIndex + 1 === this.newsHeadlines.length){
-          this.quizDone = true;
-        }
-      },
-      checkAns: function(ans) {
-        return ans === newsHeadlines[this.currentIndex].ans;
-      },
-      nextQ: function(){
-        this.mode = 'q';
-        if ((this.currentIndex + 1) < this.newsHeadlines.length) {
-          this.currentIndex += 1;
-        }
-
-        this.currentResult = '❌';
-      }
-    }
-  })
-</script>
+<script id="bizarre-news-data" type="application/json">{{ site.data.BizarreNews | jsonify }}</script>

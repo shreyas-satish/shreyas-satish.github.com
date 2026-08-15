@@ -194,6 +194,13 @@ a:focus-visible {
 .site-main--podcast > *,
 .site-main--blog > * { max-width: var(--reading-max); }
 
+.site-main--demo {
+  width: min(100%, var(--page-max));
+  text-align: left;
+}
+
+.site-main--demo > * { max-width: var(--content-max); }
+
 .site-main > .content { margin: 0; overflow: visible; }
 .site-main .row, .site-main [class*="col-"] { min-width: 0; }
 

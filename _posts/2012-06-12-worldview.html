@@ -15,11 +15,17 @@ summary: OpenLayers is hard to use. Worldview is an easy-to-use wrapper that let
     <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/readable/bootstrap.min.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
 
-    <!--<script src="http://maps.google.com/maps/api/js?v=3.5&amp;sensor=false"></script>-->
     <style>
       #map {
         width: 100%;
         height: 500px;
+      }
+
+      .worldview-container {
+        width: min(100%, var(--page-max));
+        margin: 0 auto;
+        padding-right: var(--gutter);
+        padding-left: var(--gutter);
       }
 
       body {
@@ -28,7 +34,7 @@ summary: OpenLayers is hard to use. Worldview is an easy-to-use wrapper that let
     </style>
   </head>
   <body>
-    <div class = container>
+    <div class="container worldview-container">
       {% include header.html %}  
       <div class='row'>
         <div class='col-md-12'>
@@ -55,77 +61,9 @@ summary: OpenLayers is hard to use. Worldview is an easy-to-use wrapper that let
         </footer>
       </div>  
     </div>  
-    <script src="/javascripts/OpenLayers.js"></script>
-
-    <script src="/javascripts/worldview.js"></script>
-
-    <script type = 'text/javascript'>
-
-      var w = new WorldView({ 
-mapid: 'map',
-imagesPath: "/media/wv_images/",
-cssPath: "/css/map.css",
-
-layers: {
-'OSM': {},
-},
-initialCoordinates: {
-lon: 6.056181,
-lat: 46.233988
-},
-initialZoom: 16
-});
-
-window.world = w;
-
-var vectorLayer = new WorldView.VectorLayer(w.map, {
-events: true,
-featureSelected: onFeatureSelect,
-featureUnselected: onFeatureUnselect
-});
-
-var marker = vectorLayer.addMarker({
-lon: 6.056181,
-lat: 46.233988,
-style: {
-externalGraphic: "/media/wv_images/marker.png",
-graphicHeight: 25,
-graphicWidth: 15,
-graphicOpacity: 1.0
-}
-});
-
-// You can define a custom callback for when a marker is selected
-function onFeatureSelect(event) {
-  var popContent = "<div style='color:red;margin-top:20px;'>This is CERN.</div>";
-  var pop = vectorLayer.addPopup({
-feature: marker,
-content: popContent,
-width: 100,
-height: 100
-});
-}
-
-// You can define a custom callback for when a marker is unselected
-function onFeatureUnselect(event) {
-}
-
-var wvtb = world.initToolbar({
-vectorLayer: vectorLayer,
-controls: {
-"navigate": {},
-"point": {},
-"line": {},
-"polygon": {},
-"drag": {}
-}
-});
-
-WorldView.Toolbar.featureAdded = function(feature) {
-  alert(feature.geometry);
-}
-
-</script>
+    <script src="/javascripts/OpenLayers.js" defer></script>
+    <script src="/javascripts/worldview.js" defer></script>
+    <script src="/javascripts/worldview-demo.js" defer></script>
     {% include theme-controls.html %}
 
     </body>

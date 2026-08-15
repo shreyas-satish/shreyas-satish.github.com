@@ -13,19 +13,21 @@
   {% if page.fira_sans_test %}
     <link href="/css/fira-sans-test.css" rel="stylesheet">
   {% endif %}
-  {% if page.uses_vue %}
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-  {% endif %}
 </head>
 <body{% if page.fira_sans_test %} class="fira-sans-test"{% endif %}>
   {% include header.html %}
-  <main id="main-content" class="site-main{% if page.home %} site-main--home{% endif %}{% if page.work_page %} site-main--work{% endif %}{% if page.collection == "podcasts" %} site-main--podcast{% endif %}{% if page.url contains "/blog/" %} site-main--blog{% endif %}">
+  <main id="main-content" class="site-main{% if page.home %} site-main--home{% endif %}{% if page.work_page %} site-main--work{% endif %}{% if page.collection == "podcasts" %} site-main--podcast{% endif %}{% if page.url contains "/blog/" %} site-main--blog{% endif %}{% if page.url contains "/demo/" %} site-main--demo{% endif %}">
     {{ content }}
     {% if page.comments %}
       <div id="disqus_thread"></div>
     {% endif %}
   </main>
   {% include footer.html %}
+  {% if page.scripts %}
+    {% for script in page.scripts %}
+      <script src="{{ script }}" defer></script>
+    {% endfor %}
+  {% endif %}
   {% include theme-controls.html %}
 </body>
 </html>
