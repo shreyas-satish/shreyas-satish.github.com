@@ -2,6 +2,7 @@
 layout: default
 title: Bizarre News 1
 comments: false
+uses_vue: true
 categories: index
 permalink: /demo/bizarre-news-1
 summary: 2020 has seen some bizarre news. Here are some headlines, can you tell the real ones from satire?
@@ -22,46 +23,42 @@ summary: 2020 has seen some bizarre news. Here are some headlines, can you tell 
 
 <div id="app">
   {% raw %}
-  <div class="card" style="width: 100%;">
-    <div class="card-body">
-      <div class='mb-4'>
-        <span class='mr-3'>
+  <section class="bizarre-quiz" aria-live="polite">
+    <div class="bizarre-quiz__meta">
+        <span>
           ❓ Question: {{currentIndex + 1}}/10
         </span>
         <span>
           🎯 Score: {{currentScore}}/10
         </span>
-      </div>
-      <h4 class="card-title font-weight-bold">{{newsHeadlines[currentIndex].name}}</h4>
-      <p class="card-text mr-4 mt-4">
+    </div>
+    <h2 class="bizarre-quiz__headline">{{newsHeadlines[currentIndex].name}}</h2>
+    <div class="bizarre-quiz__body">
         <div v-if="mode == 'q'">
-          <a href="javascript:void(0);" class="mr-4" v-on:click="ansQ('Real')">🤔 Real</a>
-          <a href="javascript:void(0);" class="" v-on:click="ansQ('Satire')">😂 Satire</a>
+          <p class="bizarre-quiz__prompt">Is it real, or is it satire?</p>
+          <div class="bizarre-quiz__choices">
+            <button type="button" v-on:click="ansQ('Real')">🤔 Real</button>
+            <button type="button" v-on:click="ansQ('Satire')">😂 Satire</button>
+          </div>
         </div>
         <div v-if="mode == 'a'">
-          <p class='font-weight-bold'>
+          <p class="bizarre-quiz__answer">
             <span>{{currentResult}}</span>
             {{newsHeadlines[currentIndex].ans}} <a rel="noopener noreferrer" v-bind:href="newsHeadlines[currentIndex].link" target="_blank">(Source)</a>
           </p>
           <div v-if="quizDone">
-            <p>
-              
-            </p>
-            😅 You scored {{currentScore}}/10. Share the quiz with your friends!
-            <p>
+            <p class="bizarre-quiz__summary">😅 You scored {{currentScore}}/10. Share the quiz with your friends!</p>
+            <p class="bizarre-quiz__summary">
               Found a bizarre headline? <a rel="noopener noreferrer" href="https://airtable.com/shr103iDsosBVIb7b" target="_blank">Share it here</a>.
             </p>
-            <p>
+            <p class="bizarre-quiz__summary">
               PS: Special thanks to The Guardian, The Onion, et al for the juicy headlines.
             </p>
           </div>
-          <p>
-            <a href="javascript:void(0);" v-if="this.currentIndex + 1 < newsHeadlines.length" v-on:click="nextQ">Next Question 👉</a>
-          </p>
+          <button type="button" class="bizarre-quiz__next" v-if="this.currentIndex + 1 < newsHeadlines.length" v-on:click="nextQ">Next question <span aria-hidden="true">→</span></button>
         </div>
-      </p>
     </div>
-  </div>
+  </section>
   {% endraw %}
 </div>
 

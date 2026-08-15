@@ -1,0 +1,30 @@
+<script>
+  (function () {
+    var root = document.documentElement;
+    var toggle = document.querySelector("[data-theme-toggle]");
+    if (!toggle || !window.shreyasTheme) return;
+
+    function store(theme) {
+      try { localStorage.setItem(window.shreyasTheme.storageKey, theme); } catch (error) {}
+    }
+
+    function updateControls() {
+      var isDark = root.dataset.theme === "dark";
+      var nextTheme = isDark ? "light" : "dark";
+      toggle.setAttribute("aria-label", "Switch to " + nextTheme + " mode");
+      toggle.setAttribute("aria-pressed", String(isDark));
+      toggle.querySelector("[data-theme-icon]").textContent = isDark ? "☀" : "☾";
+      toggle.querySelector("[data-theme-label]").textContent = "Switch to " + nextTheme + " mode";
+    }
+
+    toggle.addEventListener("click", function () {
+      var nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+      root.dataset.theme = nextTheme;
+      root.dataset.themeSource = "manual";
+      store(nextTheme);
+      updateControls();
+    });
+
+    updateControls();
+  }());
+</script>

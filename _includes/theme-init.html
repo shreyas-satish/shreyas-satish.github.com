@@ -1,0 +1,20 @@
+<script>
+  (function () {
+    var storageKey = "shreyas-theme";
+    var root = document.documentElement;
+
+    function resolveTheme(storedTheme, hour) {
+      if (storedTheme === "light" || storedTheme === "dark") return storedTheme;
+      return hour >= 7 && hour < 19 ? "light" : "dark";
+    }
+
+    var storedTheme = null;
+    try { storedTheme = localStorage.getItem(storageKey); } catch (error) {}
+
+    var hasStoredTheme = storedTheme === "light" || storedTheme === "dark";
+    var theme = resolveTheme(storedTheme, new Date().getHours());
+    root.dataset.theme = theme;
+    root.dataset.themeSource = hasStoredTheme ? "manual" : "auto";
+    window.shreyasTheme = { resolveTheme: resolveTheme, storageKey: storageKey };
+  }());
+</script>

@@ -1,29 +1,106 @@
-/* Styles go here */
-
-.alive {
-  background: #02a107;
-  width: 2px;
-}
-td {
-  background: #000;
-  border: 1px solid #000;
+.life-main {
+  width: min(100%, 68rem);
+  margin: 0 auto;
+  padding: var(--space-8) var(--gutter) var(--space-10);
 }
 
-.toolbar {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-}
-.pattern-select {
-  margin-bottom: 10px;
-}
-.action-btns {
-  text-align: left;
+.life-intro {
+  max-width: 42rem;
+  margin-bottom: var(--space-8);
 }
 
-@media (min-width: ) {
-
+.life-eyebrow {
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
+.life-intro h1 {
+  margin: 0 0 var(--space-4);
+  font-size: clamp(2.5rem, 5.3vw, 4.3rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+}
 
+.life-intro > p:last-child { margin: 0; color: var(--color-text-muted); font-size: 1.12rem; }
+
+.life-playground {
+  padding: clamp(var(--space-5), 5vw, var(--space-7));
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.life-controls {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+.life-controls label {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.life-controls select,
+.life-actions button {
+  min-height: 2.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.92rem;
+}
+
+.life-controls select { min-width: 8.5rem; padding: 0 2rem 0 0.75rem; }
+.life-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.life-actions button { padding: 0.5rem 0.8rem; cursor: pointer; }
+.life-actions button:hover { border-color: var(--color-text); }
+.life-actions button:focus-visible,
+.life-controls select:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+
+.life-instructions { max-width: 44rem; margin: 0 0 var(--space-6); color: var(--color-text-muted); font-size: 0.95rem; }
+
+.life-board {
+  overflow: auto;
+  border: 1px solid var(--color-border);
+  background: var(--color-game-board);
+  -webkit-overflow-scrolling: touch;
+}
+
+.life-board table { width: 100%; min-width: 32rem; border-spacing: 0; table-layout: fixed; }
+.life-board td { width: 3.333%; aspect-ratio: 1; border: 1px solid var(--color-game-grid); background: var(--color-game-board); cursor: crosshair; }
+.life-board td.alive { background: var(--color-link); }
+.life-board td:hover { outline: 1px solid color-mix(in srgb, var(--color-text) 55%, transparent); outline-offset: -1px; }
+
+.life-notes {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(13rem, 1fr);
+  gap: clamp(var(--space-7), 8vw, var(--space-10));
+  margin-top: var(--space-9);
+}
+
+.life-notes section { min-width: 0; }
+.life-notes h2 { margin: 0 0 var(--space-4); font-size: 1rem; font-weight: 500; letter-spacing: -0.015em; }
+.life-notes p, .life-notes ol { color: var(--color-text-muted); font-size: 0.95rem; }
+.life-notes ol { margin-bottom: 0; }
+
+@media (max-width: 42rem) {
+  .life-main { padding-top: var(--space-7); padding-bottom: var(--space-8); }
+  .life-intro { margin-bottom: var(--space-7); }
+  .life-controls { align-items: stretch; flex-direction: column; }
+  .life-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .life-actions button { width: 100%; }
+  .life-board table { min-width: 29rem; }
+  .life-notes { grid-template-columns: 1fr; gap: var(--space-7); margin-top: var(--space-8); }
+}

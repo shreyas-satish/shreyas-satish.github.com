@@ -1,56 +1,31 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<html lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <title>{{ page.title }}</title>
+  <meta charset="utf-8" />
+  <title>{% if page.title == "Shreyas Satish" %}Shreyas Satish{% else %}{{ page.title }} · Shreyas Satish{% endif %}</title>
   <meta name="author" content="Shreyas Satish" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="canonical" href="http://shreyas.io"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <meta name="description" content="{{ page.summary | default: 'Writing, experiments, and small things by Shreyas Satish.' | strip_html | escape }}" />
+  <link rel="canonical" href="https://shreyas.io{{ page.url }}" />
+  {% include theme-init.html %}
+  <link href="/css/fira-go.css" rel="stylesheet">
   <link href="/css/styles.css" rel="stylesheet">
+  {% if page.fira_sans_test %}
+    <link href="/css/fira-sans-test.css" rel="stylesheet">
+  {% endif %}
+  {% if page.uses_vue %}
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  {% endif %}
 </head>
-<body>
-  <div class = 'container'>
-    <div class = 'row'>
-      <div class = 'col-md-2'></div>
-      <div class = 'col-md-8'>
-        <div class = 'site-content'>
-          {% include header.html %}  
-          {{ content }}
-          <div id="disqus_thread"></div>
-          <p class='mt-4 font-italic'>
-            If you'd like to keep in touch, I post updates on <a href="https://twitter.com/shreyas_satish">Twitter</a> and <a href="https://www.linkedin.com/in/shreyassatish/">LinkedIn</a>.
-          </p>
-        </div>
-      </div>
-      <div class = 'col-md-2 last'></div>
-    </div>
-    <div class = 'row'>
-      <div class = 'col-md-2'></div>
-      <div class = 'col-md-8'>
-        <div id = 'footer'>
-        </div>
-      </div>
-      <div class = 'col-md-2'></div>
-    </div>
-  </div>
-  <script type="text/javascript">
-
+<body{% if page.fira_sans_test %} class="fira-sans-test"{% endif %}>
+  {% include header.html %}
+  <main id="main-content" class="site-main{% if page.home %} site-main--home{% endif %}{% if page.work_page %} site-main--work{% endif %}{% if page.collection == "podcasts" %} site-main--podcast{% endif %}{% if page.url contains "/blog/" %} site-main--blog{% endif %}">
+    {{ content }}
     {% if page.comments %}
-    //Disqus
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'shreyas-satish-blog'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-     })();
-{% endif %}
-</script>
+      <div id="disqus_thread"></div>
+    {% endif %}
+  </main>
+  {% include footer.html %}
+  {% include theme-controls.html %}
 </body>
 </html>
-

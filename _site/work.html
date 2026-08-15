@@ -1,42 +1,67 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<html lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <title>Work</title>
+  <meta charset="utf-8" />
+  <title>Work · Shreyas Satish</title>
   <meta name="author" content="Shreyas Satish" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="canonical" href="http://shreyas.io"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <meta name="description" content="Writing, experiments, and small things by Shreyas Satish." />
+  <link rel="canonical" href="https://shreyas.io/work" />
+  <script>
+  (function () {
+    var storageKey = "shreyas-theme";
+    var root = document.documentElement;
+
+    function resolveTheme(storedTheme, hour) {
+      if (storedTheme === "light" || storedTheme === "dark") return storedTheme;
+      return hour >= 7 && hour < 19 ? "light" : "dark";
+    }
+
+    var storedTheme = null;
+    try { storedTheme = localStorage.getItem(storageKey); } catch (error) {}
+
+    var hasStoredTheme = storedTheme === "light" || storedTheme === "dark";
+    var theme = resolveTheme(storedTheme, new Date().getHours());
+    root.dataset.theme = theme;
+    root.dataset.themeSource = hasStoredTheme ? "manual" : "auto";
+    window.shreyasTheme = { resolveTheme: resolveTheme, storageKey: storageKey };
+  }());
+</script>
+
+  <link href="/css/fira-go.css" rel="stylesheet">
   <link href="/css/styles.css" rel="stylesheet">
+  
+  
 </head>
 <body>
-  <div class = 'container'>
-    <div class = 'row'>
-      <div class = 'col-md-2'></div>
-      <div class = 'col-md-8'>
-        <div class = 'site-content'>
-          <div id = 'header'>
-  <div class = 'col-md-12'>
-    <h1 class='font-weight-bold'>Shreyas Satish</h1>
+  <header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-name" href="/" aria-label="Shreyas Satish — home">Shreyas Satish</a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/work">Work</a></li>
+      </ul>
+      <div class="theme-controls">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+          <span aria-hidden="true" data-theme-icon>☾</span>
+          <span class="visually-hidden" data-theme-label>Switch to dark mode</span>
+        </button>
+      </div>
+    </nav>
   </div>
-  <div class = 'col-md-12'>
-    <ul class = 'horizontal-list'>
-      <li><a href="/">Home</a></li>
-      <li><a href="/work">Work</a></li>
-    </ul>
-  </div>
-</div>
+</header>
 
-  
-          <h4 class="font-weight-bold">Quick intro</h4>
+  <main id="main-content" class="site-main site-main--work">
+    <h4 class="font-weight-bold">Quick intro</h4>
 
-<ul>
-  <li>I’m working on an education company called <a href="https://ownpath.xyz/">ownpath</a>, to explore an alternative model for higher education. It is intended to be more accessible, affordable, and designed around lifelong learning.</li>
-  <li>Previously, I’ve helped organize <a href="https://hillhacks.in/">hillhacks</a>, written software for a <a href="https://hasjob.co">job board</a>, an <a href="https://github.com/hasgeek/boxoffice">event ticketing system</a>, and a <a href="http://bcity.in/">city information system</a>.</li>
-  <li>If you have an interesting project in mind that you’d like to collaborate on, please write to me at <a href="mailto:shreyas.satish@gmail.com">shreyas.satish@gmail.com</a>.</li>
-</ul>
+<p>I’m the Founder &amp; CEO of <strong><a href="https://www.ownpath.com/" target="_blank" rel="noopener noreferrer">ownpath</a></strong>. We design and build products, websites, and brands for enterprises and fast-growing startups through our Studios. We also run an Academy where we’ve helped hundreds of designers, engineers, and leaders upskill and unlock interesting opportunities, and Labs, where we experiment, build fun things, and occasionally launch new businesses.</p>
+
+<p>Outside work, I love cooking, hosting people, going on bike rides and road trips, and escaping to the mountains or the beach whenever I can.</p>
+
+<p>This site is my little corner of the internet. I write about things I’m thinking about and occasionally make games, experiments, and other things for no particularly good reason.</p>
+
+<p>I love meeting new people. If you have an interesting idea, want to collaborate, or think there’s something I can help with, feel free to reach out at <strong><a href="mailto:ss@shreyas.sh">ss@shreyas.sh</a></strong>.</p>
 
 <div class="mb-5"></div>
 
@@ -146,27 +171,50 @@
   <li>Source code is available on <a href="https://github.com/shreyas-satish/fun">Github</a>.</li>
 </ul>
 
-          <div id="disqus_thread"></div>
-          <p class='mt-4 font-italic'>
-            If you'd like to keep in touch, I post updates on <a href="https://twitter.com/shreyas_satish">Twitter</a> and <a href="https://www.linkedin.com/in/shreyassatish/">LinkedIn</a>.
-          </p>
-        </div>
-      </div>
-      <div class = 'col-md-2 last'></div>
-    </div>
-    <div class = 'row'>
-      <div class = 'col-md-2'></div>
-      <div class = 'col-md-8'>
-        <div id = 'footer'>
-        </div>
-      </div>
-      <div class = 'col-md-2'></div>
-    </div>
-  </div>
-  <script type="text/javascript">
-
     
+  </main>
+  <footer class="site-footer">
+  <div class="site-footer__inner">
+    <p>Shreyas Satish</p>
+    <ul class="site-footer__links" aria-label="Elsewhere">
+      <li><a href="https://twitter.com/shreyas_satish">X</a></li>
+      <li><a href="https://www.linkedin.com/in/shreyassatish/">LinkedIn</a></li>
+      <li><a href="https://github.com/shreyas-satish">GitHub</a></li>
+      <li><a href="mailto:shreyas.satish@gmail.com">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+  <script>
+  (function () {
+    var root = document.documentElement;
+    var toggle = document.querySelector("[data-theme-toggle]");
+    if (!toggle || !window.shreyasTheme) return;
+
+    function store(theme) {
+      try { localStorage.setItem(window.shreyasTheme.storageKey, theme); } catch (error) {}
+    }
+
+    function updateControls() {
+      var isDark = root.dataset.theme === "dark";
+      var nextTheme = isDark ? "light" : "dark";
+      toggle.setAttribute("aria-label", "Switch to " + nextTheme + " mode");
+      toggle.setAttribute("aria-pressed", String(isDark));
+      toggle.querySelector("[data-theme-icon]").textContent = isDark ? "☀" : "☾";
+      toggle.querySelector("[data-theme-label]").textContent = "Switch to " + nextTheme + " mode";
+    }
+
+    toggle.addEventListener("click", function () {
+      var nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+      root.dataset.theme = nextTheme;
+      root.dataset.themeSource = "manual";
+      store(nextTheme);
+      updateControls();
+    });
+
+    updateControls();
+  }());
 </script>
+
 </body>
 </html>
-

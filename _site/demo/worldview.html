@@ -2,6 +2,27 @@
 <html>
   <head>
     <title>WorldView Example</title>
+    <script>
+  (function () {
+    var storageKey = "shreyas-theme";
+    var root = document.documentElement;
+
+    function resolveTheme(storedTheme, hour) {
+      if (storedTheme === "light" || storedTheme === "dark") return storedTheme;
+      return hour >= 7 && hour < 19 ? "light" : "dark";
+    }
+
+    var storedTheme = null;
+    try { storedTheme = localStorage.getItem(storageKey); } catch (error) {}
+
+    var hasStoredTheme = storedTheme === "light" || storedTheme === "dark";
+    var theme = resolveTheme(storedTheme, new Date().getHours());
+    root.dataset.theme = theme;
+    root.dataset.themeSource = hasStoredTheme ? "manual" : "auto";
+    window.shreyasTheme = { resolveTheme: resolveTheme, storageKey: storageKey };
+  }());
+</script>
+
     <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/readable/bootstrap.min.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
 
@@ -19,18 +40,23 @@
   </head>
   <body>
     <div class = container>
-      <div id = 'header'>
-  <div class = 'col-md-12'>
-    <h1 class='font-weight-bold'>Shreyas Satish</h1>
+      <header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-name" href="/" aria-label="Shreyas Satish — home">Shreyas Satish</a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/work">Work</a></li>
+      </ul>
+      <div class="theme-controls">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+          <span aria-hidden="true" data-theme-icon>☾</span>
+          <span class="visually-hidden" data-theme-label>Switch to dark mode</span>
+        </button>
+      </div>
+    </nav>
   </div>
-  <div class = 'col-md-12'>
-    <ul class = 'horizontal-list'>
-      <li><a href="/">Home</a></li>
-      <li><a href="/work">Work</a></li>
-    </ul>
-  </div>
-</div>
-
+</header>
   
       <div class='row'>
         <div class='col-md-12'>
@@ -128,6 +154,37 @@ WorldView.Toolbar.featureAdded = function(feature) {
 }
 
 </script>
+    <script>
+  (function () {
+    var root = document.documentElement;
+    var toggle = document.querySelector("[data-theme-toggle]");
+    if (!toggle || !window.shreyasTheme) return;
+
+    function store(theme) {
+      try { localStorage.setItem(window.shreyasTheme.storageKey, theme); } catch (error) {}
+    }
+
+    function updateControls() {
+      var isDark = root.dataset.theme === "dark";
+      var nextTheme = isDark ? "light" : "dark";
+      toggle.setAttribute("aria-label", "Switch to " + nextTheme + " mode");
+      toggle.setAttribute("aria-pressed", String(isDark));
+      toggle.querySelector("[data-theme-icon]").textContent = isDark ? "☀" : "☾";
+      toggle.querySelector("[data-theme-label]").textContent = "Switch to " + nextTheme + " mode";
+    }
+
+    toggle.addEventListener("click", function () {
+      var nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+      root.dataset.theme = nextTheme;
+      root.dataset.themeSource = "manual";
+      store(nextTheme);
+      updateControls();
+    });
+
+    updateControls();
+  }());
+</script>
+
 
     </body>
   </html>

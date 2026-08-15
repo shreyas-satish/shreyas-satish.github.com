@@ -1,0 +1,33 @@
+.brown-main { width: min(100%, 68rem); margin: 0 auto; padding: var(--space-8) var(--gutter) var(--space-10); }
+.brown-intro { max-width: 43rem; margin-bottom: var(--space-8); }
+.brown-eyebrow { margin: 0 0 var(--space-3); color: var(--color-text-muted); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+.brown-intro h1 { margin: 0 0 var(--space-4); font-size: clamp(2.5rem, 5.3vw, 4.3rem); font-weight: 500; letter-spacing: -0.055em; line-height: 0.98; }
+.brown-intro > p:last-child { margin: 0; color: var(--color-text-muted); font-size: 1.12rem; }
+.brown-game { padding: clamp(var(--space-5), 5vw, var(--space-7)); border: 1px solid var(--color-border); background: var(--color-surface); }
+.brown-game__heading { display: flex; justify-content: space-between; gap: var(--space-5); margin-bottom: var(--space-6); }
+.brown-game__heading p { margin: 0; }
+.brown-card-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-3); }
+.brown-number-card { display: flex; min-width: 0; min-height: 16rem; flex-direction: column; padding: var(--space-4); border: 1px solid var(--color-border); background: var(--color-bg); cursor: pointer; }
+.brown-number-card:hover { border-color: var(--color-text-muted); }
+.brown-number-card:has(input:checked) { border-color: var(--color-link); box-shadow: inset 0 -2px 0 var(--color-link); }
+.brown-number-card__number { display: block; margin-bottom: var(--space-4); color: var(--color-text-muted); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; }
+.brown-number-card__numbers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.45rem var(--space-2); align-content: start; color: var(--color-text); font-size: 1.06rem; font-weight: 500; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; line-height: 1.25; }
+.brown-number-card__numbers span { min-width: 0; text-align: left; }
+.brown-number-card__choice { display: flex; align-items: center; gap: var(--space-2); margin-top: auto; padding-top: var(--space-4); color: var(--color-text-muted); font-size: 0.72rem; line-height: 1.25; }
+.brown-number-card__choice input { width: 1rem; height: 1rem; margin: 0; accent-color: var(--color-link); }
+.brown-game__actions { display: flex; align-items: center; gap: var(--space-5); margin-top: var(--space-6); }
+.brown-game button { min-height: 2.75rem; padding: 0.55rem 0.9rem; border: 1px solid var(--color-text); border-radius: 0; background: var(--color-text); color: var(--color-bg); cursor: pointer; font: inherit; font-size: 0.95rem; font-weight: 500; }
+.brown-game button:hover { background: transparent; color: var(--color-text); }
+.brown-game button:focus-visible, .brown-number-card__choice input:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+#brown-result { min-height: 1.5em; margin: 0; color: var(--color-text-muted); font-size: 0.95rem; }
+.brown-explanation { max-width: 52rem; margin-top: var(--space-9); }
+.brown-explanation[hidden], .brown-video[hidden] { display: none; }
+.brown-explanation h2, .brown-video h2 { margin: 0 0 var(--space-4); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 500; }
+.brown-explanation > div > p:not(.brown-eyebrow) { color: var(--color-text-muted); font-size: 0.98rem; }
+.brown-explanation__comic { width: min(100%, 43rem); margin: var(--space-7) 0 0; }
+.brown-explanation__comic img { display: block; width: 100%; height: auto; filter: grayscale(1); }
+.brown-explanation__comic figcaption { margin-top: var(--space-3); color: var(--color-text-muted); font-size: 0.82rem; }
+.brown-video { max-width: 48rem; margin-top: var(--space-8); }
+.brown-video iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; }
+@media (max-width: 52rem) { .brown-card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .brown-number-card { min-height: 12rem; } }
+@media (max-width: 42rem) { .brown-main { padding-top: var(--space-7); padding-bottom: var(--space-8); } .brown-intro { margin-bottom: var(--space-7); } .brown-game__heading, .brown-game__actions { align-items: flex-start; flex-direction: column; gap: var(--space-3); } .brown-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .brown-number-card { min-height: 13rem; } .brown-number-card__numbers { grid-template-columns: repeat(3, minmax(0, 1fr)); font-size: 1rem; } .brown-explanation { margin-top: var(--space-8); } .brown-explanation__comic { margin-top: var(--space-6); } }

@@ -1,0 +1,85 @@
+/* Homepage-only Fira Sans trial. Remove the front-matter flag to revert. */
+@font-face {
+  font-family: "Fira Sans Test";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/FiraSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Fira Sans Test";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/FiraSans-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Fira Sans Test";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/FiraSans-SemiBold.ttf") format("truetype");
+}
+
+body.fira-sans-test {
+  font-family: "Fira Sans Test", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.006em;
+  line-height: 1.72;
+}
+
+.fira-sans-test h1,
+.fira-sans-test h2,
+.fira-sans-test h3,
+.fira-sans-test h4,
+.fira-sans-test h5,
+.fira-sans-test h6,
+.fira-sans-test .site-name,
+.fira-sans-test .home-eyebrow,
+.fira-sans-test .home-item__meta {
+  font-weight: 500;
+}
+
+.fira-sans-test .site-name {
+  letter-spacing: -0.02em;
+}
+
+.fira-sans-test .site-nav a,
+.fira-sans-test .site-footer a,
+.fira-sans-test .site-footer p {
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.fira-sans-test .home-intro h1 {
+  font-weight: 500;
+  letter-spacing: -0.052em;
+  line-height: 0.98;
+}
+
+.fira-sans-test .home-intro__copy {
+  max-width: 35rem;
+  letter-spacing: -0.012em;
+  line-height: 1.6;
+}
+
+.fira-sans-test .home-section__heading h2 {
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+}
+
+.fira-sans-test .home-writing-item h3,
+.fira-sans-test .home-making-item h3 {
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.24;
+}
+
+.fira-sans-test .home-writing-item > div > p:not(.home-item__meta),
+.fira-sans-test .home-making-item > p:last-child,
+.fira-sans-test .home-closing > div > p:last-child {
+  line-height: 1.7;
+}

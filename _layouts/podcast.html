@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<article class="podcast-page">
+  <header class="podcast-header">
+    <p class="home-eyebrow">Podcast</p>
+    <h1>{{ page.title }}</h1>
+    <p class="podcast-meta">
+      <span>{{ page.show }}</span>
+      <span>{{ page.role }}</span>
+      {% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>{% endif %}
+    </p>
+  </header>
+
+  <div class="podcast-description">
+    {{ content }}
+  </div>
+
+  <div class="podcast-player podcast-player--{{ page.platform }}">
+    {% if page.platform == "youtube" %}
+      <iframe src="https://www.youtube-nocookie.com/embed/{{ page.embed_id }}" title="{{ page.title | escape }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    {% elsif page.platform == "spotify" %}
+      <iframe src="https://open.spotify.com/embed/episode/{{ page.embed_id }}?utm_source=generator" title="{{ page.title | escape }}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    {% endif %}
+  </div>
+
+  <p class="podcast-source"><a href="{{ page.external_url }}" target="_blank" rel="noopener noreferrer">{% if page.platform == "youtube" %}Watch on YouTube{% else %}Listen on Spotify{% endif %}</a></p>
+</article>
