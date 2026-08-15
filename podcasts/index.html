@@ -1,0 +1,21 @@
+---
+layout: default
+title: Podcasts
+description: Conversations Shreyas Satish has joined as a guest and co-host.
+---
+
+<div class="content">
+  <header>
+    <h1>Podcasts</h1>
+    <p>Conversations I’ve joined as a guest and co-host.</p>
+  </header>
+  <ul class="articles">
+    {% assign podcasts = site.podcasts | sort: "featured_order" %}
+    {% for podcast in podcasts %}
+      <li>
+        <h2><a href="{{ podcast.url }}">{{ podcast.title }}</a></h2>
+        <div class="details">{{ podcast.show }} · {{ podcast.role }}{% if podcast.date %} · {{ podcast.date | date: "%b %Y" }}{% endif %}</div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

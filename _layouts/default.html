@@ -2,11 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>{% if page.title == "Shreyas Satish" %}Shreyas Satish{% else %}{{ page.title }} · Shreyas Satish{% endif %}</title>
-  <meta name="author" content="Shreyas Satish" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="{{ page.summary | default: 'Writing, experiments, and small things by Shreyas Satish.' | strip_html | escape }}" />
-  <link rel="canonical" href="https://shreyas.io{{ page.url }}" />
+  {% include seo.html %}
   {% include theme-init.html %}
   <link href="/css/fira-go.css" rel="stylesheet">
   <link href="/css/styles.css" rel="stylesheet">

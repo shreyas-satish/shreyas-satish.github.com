@@ -3,7 +3,7 @@
 // This is a JavaScript implementation of the Game of Life - 
 // https://en.wikipedia.org/wiki/Conway's_Game_of_Life
 
-// For the demo, please go to http://shreyas.io/demos/game_of_life/
+// For the demo, please go to https://shreyas.sh/demo/game-of-life
 
 // Define a starting configuration, like the one below:
 // var startingGrid = [
