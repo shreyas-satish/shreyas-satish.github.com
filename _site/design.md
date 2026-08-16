@@ -1,740 +1,369 @@
-# shreyas.sh --- Design Direction
+# shreyas.sh — Design Direction
 
 ## 1. Design thesis
 
 **A quiet personal playground for thinking, writing, and making.**
 
-The site should feel like a well-designed personal notebook rather than
-a portfolio, startup site, or content publication.
+The site should feel like a well-designed personal notebook rather than a
+portfolio, startup site, or content publication.
 
 Three qualities should dominate:
 
--   **Calm** --- generous whitespace, restrained visual language, low
-    cognitive load.
--   **Editorial** --- typography and rhythm do most of the design work;
-    essays should feel genuinely pleasurable to read.
--   **Playful** --- small moments of surprise, interactive experiments,
-    and games should feel native to the site rather than bolted on.
+- **Calm** — generous whitespace, restrained visual language, low cognitive
+  load.
+- **Editorial** — typography and rhythm do most of the design work; essays
+  should be genuinely pleasurable to read.
+- **Playful** — small moments of surprise, interactive experiments, and games
+  should feel native to the site rather than bolted on.
 
-The design should communicate taste without trying to demonstrate taste.
+The design should communicate taste without trying to demonstrate taste. The
+feeling should be: “This is unusually thoughtful and easy to spend time in,”
+not “This person has made a fancy personal website.”
 
-### The emotional target
-
-When someone lands on the site, the feeling should be:
-
-> "This is unusually thoughtful and easy to spend time in."
-
-Not:
-
-> "This person has made a fancy personal website."
-
-------------------------------------------------------------------------
-
-# 2. What the site is
+## 2. What the site is
 
 The site has three equal identities:
 
-### Writing
+- **Writing** — essays, notes, observations, and things being figured out.
+- **Making** — experiments, games, interactive toys, prototypes, and side
+  projects.
+- **Person** — a light sense of who Shreyas is, what he is interested in, and
+  where else to find him.
 
-Essays, notes, observations, and things you're figuring out.
-
-### Making
-
-Experiments, games, interactive toys, prototypes, and side projects.
-
-### Person
-
-A lightweight sense of who Shreyas is, what he is interested in, and
-where else to find him.
-
-The site should **not** feel like a chronological blog. It should feel
-like an evolving collection of things worth spending time with.
+It is an evolving collection of things worth spending time with, not a
+chronological blog or a conventional portfolio.
 
 ------------------------------------------------------------------------
 
-# 3. Information architecture
-
-Keep the top-level navigation extremely small.
-
-**Header**
-
--   Shreyas
--   Writing
--   Making
--   About
-
-Optional right-side utility:
-
--   Search
--   Theme toggle
-
-Avoid a large navigation system.
-
-### Home
-
-The homepage should be a curated introduction, not a dashboard.
-
-Suggested structure:
-
-1.  Short introduction
-2.  Featured writing
-3.  Featured experiments / games
-4.  A small "currently" or "elsewhere" section
-5.  Footer
-
-Do not show every piece of content on the homepage.
-
-### Writing
-
-A simple chronological / curated index.
-
-Each item:
-
--   Title
--   Short description
--   Date
--   Reading time
-
-Consider grouping by year only when the archive becomes large enough to
-need it.
-
-### Essay
-
-The essay page is the most important template on the site.
-
-It should feel closer to a beautiful book page than a blog CMS.
-
-### Making
-
-A visual / interactive index of experiments.
-
-Projects can be much more expressive here than elsewhere on the site.
-
-Each project should have:
-
--   Name
--   One-line description
--   Small visual or interactive preview
--   Date / status
--   Link to play or explore
-
-### About
-
-Keep it short.
-
-A photograph is optional. The page should primarily answer:
-
--   Who is Shreyas?
--   What does he work on?
--   What does he care about?
--   Where can I find him?
-
-No traditional résumé dump unless there is a strong reason.
-
-------------------------------------------------------------------------
-
-# 4. Visual direction
-
-## Overall aesthetic
-
-**Minimal editorial design + subtle digital character.**
-
-Reference the feeling of:
-
--   a beautifully typeset independent magazine
--   a personal notebook
--   a thoughtful software product
--   an early-web personal site, but with contemporary restraint
-
-Avoid:
-
--   startup-land gradients
--   excessive cards
--   glassmorphism
--   giant hero illustrations
--   excessive animations
--   decorative blobs
--   generic "designer portfolio" layouts
--   everything being perfectly centered
-
-The site should have **structure without looking designed-to-death**.
-
-------------------------------------------------------------------------
-
-# 5. Layout
-
-## Desktop
-
-Use a generous page margin.
-
-Suggested max-width:
-
-**1200--1280px**
-
-But don't use that entire width for reading.
-
-### Content widths
-
-General pages:
-
-**720--900px**
-
-Essay text:
-
-**640--700px**
-
-Essay title:
-
-**760--900px**
-
-Interactive experiments:
-
-Can expand to **1000--1200px** where the experience benefits from it.
-
-The key principle:
-
-> The site can be wide. The reading column should not be.
-
-## Grid
-
-Use an underlying 12-column grid for layout decisions, but don't visibly
-expose the grid.
-
-Prefer asymmetric compositions occasionally:
-
--   metadata in a narrow column
--   content in the main column
--   small notes / captions offset to the side
-
-This gives sophistication without adding decoration.
-
-------------------------------------------------------------------------
-
-# 6. Typography
-
-Typography is the primary visual element.
-
-Use **one excellent sans-serif family** for the interface and either:
-
--   the same family for essays, with careful sizing and spacing, OR
--   a complementary serif for long-form writing.
-
-Do not use more than two typefaces.
-
-### Suggested hierarchy
-
-**Display** - 48--64px desktop - tight line-height - restrained weight
-
-**Page heading** - 36--48px
-
-**Essay title** - 48--64px desktop - 34--42px mobile
-
-**Body** - 18--20px - 1.55--1.7 line-height - comfortable measure
-
-**Small text** - 13--14px - used sparingly
-
-Avoid too many font weights.
-
-A sophisticated site should get most of its hierarchy from:
-
--   size
--   spacing
--   line length
--   contrast
-
----not weight, borders, shadows, or color.
-
-### Recommended starting fonts
-
-Test these before committing:
-
--   Inter
--   Geist
--   IBM Plex Sans
--   Suisse Intl / similar neo-grotesk if licensed
--   Instrument Sans
-
-For an editorial serif:
-
--   Source Serif 4
--   Newsreader
--   Literata
-
-The final choice should be made by looking at actual essays, not font
-specimens.
-
-------------------------------------------------------------------------
-
-# 7. Color
-
-Default to an almost-white warm background rather than pure white.
-
-Example starting palette:
-
-``` css
---bg: #F8F7F4;
---text: #171717;
---muted: #77736D;
---line: #E4E1DB;
---accent: #5B5CE2;
-```
-
-But the accent should be used extremely sparingly.
-
-Potentially:
-
--   links
--   interactive states
--   selected controls
--   tiny moments inside games
-
-Do not build the site around a loud brand color.
-
-### Dark mode
-
-Support dark mode, but don't design two separate visual identities.
-
-Use:
-
--   warm near-black background
--   soft off-white text
--   muted secondary text
--   restrained accent
-
-Dark mode should feel like the same room at night.
-
-------------------------------------------------------------------------
-
-# 8. Spacing
-
-Spacing is where much of the sophistication should come from.
-
-Use a consistent spacing scale, e.g.:
-
-``` text
-4
-8
-12
-16
-24
-32
-48
-64
-80
-96
-128
-```
-
-Prefer large jumps between sections.
-
-A useful rule:
-
-> If something feels slightly too spacious, it is probably close to
-> right.
-
-Especially prioritize whitespace:
-
--   above page titles
--   between title and metadata
--   between essay paragraphs
--   between major sections
--   around interactive projects
-
-Do not fill empty space simply because it exists.
-
-------------------------------------------------------------------------
-
-# 9. Essay experience
-
-This is the highest-priority interaction on the site.
-
-### Essay header
-
-Example:
-
-``` text
-Designing for the world we actually live in
-
-A few thoughts on designing products for messy,
-real-world constraints.
-
-Aug 2026 · 12 min read
-```
-
-Then a substantial amount of whitespace before the article begins.
-
-### Reading experience
-
-Priorities:
-
-1.  Excellent typography
-2.  Comfortable line length
-3.  Clear hierarchy
-4.  Minimal distractions
-5.  Fast page load
-6.  Excellent mobile reading
-
-Avoid:
-
--   sticky social-share bars
--   recommendation widgets
--   newsletter popups
--   ads
--   unnecessary sidebars
--   excessive inline UI
-
-### Article details
-
-Support:
-
--   pull quotes
--   images
--   captions
--   footnotes
--   code blocks where necessary
--   embedded interactive experiments
-
-But use them editorially.
-
-### Progress
-
-A very subtle reading-progress indicator is acceptable.
-
-It should be almost invisible until useful.
-
-------------------------------------------------------------------------
-
-# 10. Games & interactive experiments
-
-This is where the site gets personality.
-
-The contrast is important:
-
-**Writing should be calm. Making should be playful.**
-
-Games can have:
-
--   bolder colors
--   unusual layouts
--   animation
--   sound
--   playful typography
--   experimental interactions
-
-But the surrounding chrome should remain minimal.
-
-### Project cards
-
-Avoid generic rectangular cards with shadows.
-
-Instead consider:
-
-``` text
-GAME OF LIFE
-
-A tiny experiment in emergent behavior.
-
-[interactive preview]
-
-Play →
-```
-
-The preview itself should provide the visual interest.
-
-### Game pages
-
-Give the experiment room.
-
-The UI should get out of the way and let the game occupy the screen.
-
-Include a tiny contextual header/footer so users can easily return to
-the rest of the site.
-
-------------------------------------------------------------------------
-
-# 11. Homepage direction
-
-The homepage should feel almost unexpectedly simple.
-
-Possible structure:
-
-``` text
-Shreyas
-
-I build things, run companies, write about
-what I'm learning, and occasionally make
-things that are completely unnecessary.
-
-                ↓
-
-Writing
-
-Designing for...
-12 min · Aug 2026
-
-What I learned from...
-8 min · Jul 2026
-
-...
-
-                ↓
-
-Making
-
-Game of Life
-Brown's Criterion
-Other experiments
-
-                ↓
-
-Currently
-
-Building ownpath.
-Making things.
-Trying to spend more time...
-
-                ↓
-
-Elsewhere
-
-X · LinkedIn · GitHub · Email
-```
-
-The copy should be personal and specific, not professional-brand
-language.
-
-------------------------------------------------------------------------
-
-# 12. Motion
-
-Motion should be **rare but delightful**.
-
-Use animation to communicate:
-
--   navigation
--   state changes
--   interaction
--   playfulness
-
-Do not animate everything entering the viewport.
-
-### Good
-
--   subtle link underline transitions
--   gentle page transitions
--   game interactions
--   tiny hover responses
--   cursor / pointer feedback for experiments
-
-### Avoid
-
--   scroll-jacking
--   parallax everywhere
--   excessive fade-ins
--   loading animations for content that doesn't need them
-
-The site should feel fast.
-
-------------------------------------------------------------------------
-
-# 13. Micro-interactions
-
-A few memorable details are better than dozens of generic ones.
-
-Potential ideas:
-
--   Hovering an experiment gives a tiny live preview.
--   Certain words reveal contextual notes.
--   A subtle "shuffle" action surfaces a random essay.
--   A "surprise me" button opens a random game or experiment.
--   The footer contains a tiny unexpected interaction.
--   Keyboard shortcuts for browsing essays.
--   A hidden easter egg somewhere on the site.
-
-The rule:
-
-> Discoverability is more important than explanation.
-
-Don't advertise every fun thing.
-
-------------------------------------------------------------------------
-
-# 14. Responsive behavior
-
-Mobile should not feel like the desktop site squeezed into a phone.
-
-### Mobile priorities
-
--   20--24px horizontal padding
--   34--42px essay titles
--   17--19px body text
--   generous vertical spacing
--   no unnecessary horizontal UI
--   touch targets at least \~44px
--   games adapt to portrait screens where possible
-
-Navigation can collapse into a simple menu, but avoid a heavy mobile
+## 3. Current information architecture
+
+The public navigation is intentionally small: site name, **Home**, **Work**,
+and a theme toggle. Do not add navigation items merely to expose archives;
+Writing, Making, and Podcasts are reached through the homepage and their
+durable URLs.
+
+- **Home**: personal introduction, curated Writing, Making, and Podcasts.
+  It is not a dashboard and has no currently/elsewhere module.
+- **Writing**: `/blog/`; a simple chronological archive. The homepage shows
+  selected essays with a date above the title and a short description.
+- **Making**: selected experiments on the homepage and the `/demos/` index.
+- **Work**: the lightweight about page; text-led, not a résumé landing page.
+- **Podcasts**: `/podcasts/` plus one dedicated page per episode.
+
+Avoid portfolio cards, carousels, thumbnail walls, and a larger top-level
 navigation system.
 
 ------------------------------------------------------------------------
 
-# 15. Accessibility
+## 4. Centered layout and spacing
 
-Treat accessibility as part of the visual system.
+### Site grid
 
-Requirements:
+The desktop site is one centered column system. Header, main, and footer share
+the same expression:
 
--   strong text contrast
--   visible keyboard focus
--   semantic HTML
--   proper heading hierarchy
--   reduced-motion support
--   accessible interactive controls
--   alt text for meaningful images
--   games should provide basic instructions / fallback where possible
+```css
+width: min(calc(100% - var(--gutter) - var(--gutter)), var(--page-max));
+margin-inline: auto;
+```
 
-Do not sacrifice usability for minimalism.
+Current tokens:
+
+```css
+--page-max: 62rem;       /* 992px: active site grid */
+--content-max: 46rem;    /* 736px: ordinary content/index column */
+--reading-max: 42rem;    /* 672px: essay and episode reading measure */
+--gutter: clamp(1.25rem, 4vw, 3rem);
+```
+
+At a 1280px viewport, the active 62rem grid has equal 144px margins. Do not
+return to a wide shell with narrower, left-biased children. The prior 78rem
+value remains only as `--page-max-current`; the active test assignment is
+`--page-max-narrow-test: 62rem`.
+
+General index content is centered at `--content-max`. Essay copy and podcast
+body/media use the centered `--reading-max` measure. The overall grid and the
+reading column intentionally serve different jobs.
+
+### Spacing scale
+
+```css
+--space-1: .25rem;  --space-2: .5rem;   --space-3: .75rem;
+--space-4: 1rem;    --space-5: 1.5rem;  --space-6: 2rem;
+--space-7: 3rem;    --space-8: 4rem;    --space-9: 5rem;
+--space-10: 6rem;   --space-11: 8rem;
+```
+
+Use these values rather than one-off margins. Preserve generous space between
+major sections; do not fill it with decoration.
+
+### Header and footer
+
+The header is a baseline-aligned flex row: name first, then the small
+navigation and theme control. It never spans wider than the page below it.
+The footer uses the same grid, one subtle top separator, name left, and
+elsewhere links right; it stacks on small screens.
 
 ------------------------------------------------------------------------
 
-# 16. Performance
+## 5. Typography
 
-The website should feel almost instant.
+Typography, proportion, and whitespace establish hierarchy. Never compensate
+with cards, shadows, or heavier weights.
 
-Prioritize:
+### Typeface and weights
 
--   static rendering where possible
--   minimal JavaScript on content pages
--   optimized images
--   lazy-loading below-the-fold media
--   system / locally hosted fonts where practical
--   no unnecessary third-party scripts
+**Fira Sans is the approved primary typeface.** Use the local font files and
+only these interface weights:
 
-An essay page should feel closer to loading a document than loading a
-web app.
+- **400 Regular** — body, navigation, footer, and supporting text.
+- **500 Medium** — display headings, item titles, metadata emphasis, and
+  important controls.
+- **600 SemiBold** — sparingly, only where a stronger heading or label needs
+  it.
 
-Games can load heavier assets only when the user chooses to play.
+Do not use 700/800 on redesigned pages. The local Fira Sans files are
+`FiraSans-Regular.ttf`, `FiraSans-Medium.ttf`, and `FiraSans-SemiBold.ttf`,
+with `font-display: swap`.
+
+Implementation note: the homepage currently carries the local Fira Sans trial
+class, while the shared `--font-sans` stack still names FiraGo. This mismatch
+must be resolved before the Fira Sans decision is fully propagated; do not add
+a third type family as a workaround.
+
+### Implemented scale and rhythm
+
+```css
+body:  clamp(1.0625rem, 1.6vw, 1.1875rem); /* 17–19px */
+body leading: 1.68;
+h1:    clamp(2.25rem, 5vw, 3.75rem);       /* 36–60px */
+h2:    clamp(1.5rem, 3vw, 2rem);           /* 24–32px */
+h3:    clamp(1.25rem, 2.3vw, 1.5rem);      /* 20–24px */
+```
+
+Default headings use `1.15` line-height and `-0.035em` tracking. Homepage
+display type is `clamp(2.75rem, 5vw, 4.25rem)`, weight 500, `0.98`
+line-height, and `-0.055em` tracking. Homepage section headings are
+`clamp(1.75rem, 3.4vw, 2.5rem)`, weight 500.
+
+Body text is open and readable. Metadata is 0.75rem, uppercase, weight 500,
+and `0.08em` tracking. Navigation and footer text are 0.875rem and
+understated. Use size, position, measure, spacing, and contrast before weight.
 
 ------------------------------------------------------------------------
 
-# 17. Content model
+## 6. Color and themes
 
-Treat content as structured data rather than hardcoded pages.
+Light mode is a daytime reading environment: warm paper, dark-brown ink, and
+faded-ink supporting text—not generic off-white UI chrome. Dark mode is the
+same room at night, not a second visual identity.
+
+```css
+/* light */
+--color-bg: #f4eedf;
+--color-surface: #eee5d4;
+--color-text: #29251f;
+--color-text-muted: #706758;
+--color-border: #d9cfbd;
+--color-link: #654b35;
+--color-focus: #654b35;
+--color-selection: #dccba8;
+--color-game-board: #1c1c1a;
+--color-game-grid: #302f2b;
+
+/* html[data-theme="dark"] */
+--color-bg: #191917;
+--color-surface: #23221f;
+--color-text: #efede8;
+--color-text-muted: #b4b0a8;
+--color-border: #3a3833;
+--color-link: #b7b9ff;
+--color-focus: #c9caff;
+--color-selection: #414360;
+--color-game-board: #151514;
+--color-game-grid: #242421;
+```
+
+Components consume semantic tokens; do not hardcode light/dark colors in page
+components. Links use restrained underlines, borders are sparse and
+low-contrast, and selection uses the matching token.
+
+### Theme behavior
+
+An inline head script sets `html[data-theme]` before the stylesheet paints:
+
+1. `localStorage["shreyas-theme"]` wins when it contains `light` or `dark`.
+2. Otherwise, visitor-local time chooses light from 07:00–18:59 and dark from
+   19:00–06:59.
+3. `data-theme-source` records `manual` or `auto`.
+
+The small sun/moon button is keyboard accessible, updates its accessible label,
+and persists the manual choice. There is deliberately no visible Auto control;
+clearing `shreyas-theme` restores time-based behavior. Do not add a theme
+library or duplicated light/dark stylesheets.
+
+------------------------------------------------------------------------
+
+## 7. Content presentation
+
+### Homepage
+
+The homepage is a short, human entrance to the notebook:
+
+1. Eyebrow, greeting, and personal introductory paragraph.
+2. **Writing**: selected essays with date, title, and short description.
+3. **Making**: three plain text-led experiment entries in a three-column
+   desktop grid; no cards or thumbnail wall.
+4. **Podcasts**: selected text-only episodes with show, role, optional date,
+   and an internal page link.
+
+No YouTube or Spotify iframe may load on the homepage. Do not restore the
+currently/elsewhere section that was intentionally removed.
+
+### Writing and essays
+
+The Writing archive is concise and chronological. Essays are the highest
+priority reading experience: no sidebars, share widgets, newsletter prompts,
+ads, reading-progress indicator, or other distracting chrome. Use the
+centered 672px measure, warm paper/ink palette, `1.68` body leading, modest
+paragraph separation (`--space-5`), quiet blockquotes, and simple code blocks.
+
+The current template keeps article heading and body in the same reading
+column. Do not make the body wider; a future title treatment may use more of
+the site grid only if it stays visibly related to the centered reading column.
+
+### Making and experiments
+
+The surrounding interface is restrained, but an experiment may be strange,
+playful, unfinished, or visually unconventional. Avoid conventional portfolio
+cards. Provide a small contextual header, clear controls, and enough room to
+play. Preserve working legacy behavior before attempting modernization.
+
+### Podcasts
+
+Episodes are collection documents with `title`, `show`, `role`, optional
+`date`, `platform`, `external_url`, `embed_id`, description/content, and
+`featured` fields. Their pages use shared metadata, short context, a lazy
+privacy-enhanced YouTube iframe or Spotify embed, and an external
+watch/listen link.
+
+The podcast title/header may use the full 62rem site grid so long titles fit in
+two lines. Description, player, and source retain a 42rem reading measure, but
+their left edge aligns with the title/header. Keep embeds off the homepage.
+
+### Work
+
+Work is the about page: personal, text-led, and left-aligned inside a centered
+46rem content column. Do not turn it into a corporate bio or résumé dump.
+
+------------------------------------------------------------------------
+
+## 8. Responsive behavior, motion, and accessibility
+
+Mobile keeps the same grid formula, producing fluid 20–48px gutters without a
+separate mobile shell. At `38rem` (608px) and below:
+
+- header top/bottom spacing becomes `--space-4`;
+- main top/bottom spacing becomes `--space-7` / `--space-8`;
+- footer content stacks;
+- homepage section spacing and list gaps reduce modestly;
+- Making changes from three columns to one;
+- the theme button remains a 2.75rem / 44px touch target.
+
+Individual games may use narrower breakpoints for controls or boards, but may
+not cause page-level horizontal scrolling.
+
+Motion is rare. The system has small hover/focus responses and game state
+changes; it has no page transitions, entrance animation, or navigation loading
+indicator. Do not add one without a behavior that needs feedback.
+`prefers-reduced-motion: reduce` removes animation and smooth scrolling.
+
+Accessibility is part of the visual system: semantic headings and landmarks,
+visible `:focus-visible` outlines, real buttons, labelled theme switching,
+`aria-live` status for game results, meaningful alt text, sufficient contrast,
+and keyboard-operable interactions are required.
+
+------------------------------------------------------------------------
+
+## 9. Performance and page-specific JavaScript
+
+The baseline is static HTML and CSS. Home, Writing, essays, Work, podcast
+index, and podcast chrome load no framework, jQuery, Bootstrap JS, Vue, or
+Angular. The only shared JavaScript is the small inline theme initialization
+and control behavior.
+
+Declare an experiment’s scripts in front matter so the default layout emits
+them with `defer`. Keep dependencies isolated:
+
+- Bizarre News: Vue 2 plus its page script.
+- Brown’s Criterion: jQuery, Handlebars, and local page scripts.
+- Game of Life: AngularJS 1.2 and its page script.
+- WorldView: local OpenLayers scripts.
+
+Do not bundle legacy libraries globally or rewrite a demo just to modernize its
+framework. Lazy-load media embeds, locally host fonts where available, and
+avoid render-blocking third-party additions.
+
+------------------------------------------------------------------------
+
+## 10. Metadata and URL conventions
+
+Every indexable page uses shared metadata. Titles are `Page title · Shreyas
+Satish`, except the homepage (`Shreyas Satish`). Use a real summary or useful
+excerpt where available; never keyword-stuff. Canonical, Open Graph, and
+Twitter metadata use `https://shreyas.sh`.
+
+Keep public URLs stable. Indexable content belongs in `sitemap.xml`;
+`robots.txt` permits normal crawling and points to it. Redirect-only legacy
+pages are intentionally excluded and use `noindex,follow`.
+
+When adding content, make sure its title, summary or useful excerpt, canonical
+URL, and social metadata are supplied by the shared layout. Do not add
+analytics or SEO scripts merely for metadata.
+
+------------------------------------------------------------------------
+
+## 11. Adding content without breaking the visual language
 
 ### Essay
 
-``` ts
-{
-  title: string
-  description: string
-  date: Date
-  readingTime: number
-  tags?: string[]
-  featured?: boolean
-  content: MDX
-}
-```
+Add a post with a durable permalink, title, date, category, and concise
+`summary`. Use semantic Markdown and the shared layout. Keep ordinary writing
+inside the centered reading column; do not add bespoke shells, sidebars, or a
+page-specific framework.
 
 ### Experiment
 
-``` ts
-{
-  title: string
-  description: string
-  date: Date
-  status?: "active" | "archived"
-  thumbnail?: string
-  url: string
-  featured?: boolean
-}
-```
+Preserve shared header/footer and semantic tokens, then let the playable area
+have its own personality. Put all dependencies in that page’s front matter or
+standalone document. Defer noncritical scripts and provide clear instructions
+with focus-aware controls.
 
-This makes the site easy to evolve.
+### Podcast episode
+
+Create a document in `_podcasts/` with the listed fields. The homepage links
+only to the internal episode page; the episode owns its lazy embed and external
+platform link. Keep the page typographic and spacious rather than
+media-platform-like.
 
 ------------------------------------------------------------------------
 
-# 18. Existing site → new site
+## 12. Design principles
 
-The current site already has the right underlying ingredients: writing,
-experiments, and interactive work. It currently presents them primarily
-as a simple list. citeturn0view0
-
-Keep that spirit.
-
-Do **not** turn it into a conventional portfolio.
-
-The redesign should preserve the feeling that this is a personal corner
-of the internet, while making the typography, hierarchy, reading
-experience, and interaction substantially better.
-
-The existing Game of Life and Brown's Criterion pieces are particularly
-useful signals: they suggest that "making weird little things" should be
-a first-class part of the site's identity, not an afterthought.
-citeturn0view0
+1. **Typography over decoration.** Use type, measure, and whitespace first.
+2. **Content is the interface.** Let writing and experiments carry the site.
+3. **Quiet by default; playful by exception.** Chrome recedes; games may be
+   weird.
+4. **Centered system, comfortable measure.** The 62rem site grid and 42rem
+   reading column serve different jobs.
+5. **Earn complexity.** No generic cards, gradients, glass, oversized heroes,
+   excessive borders, or startup-landing-page aesthetics.
+6. **Fast feels sophisticated.** Static pages first; JavaScript only when a
+   behavior requires it.
 
 ------------------------------------------------------------------------
 
-# 19. Design principles
+## 13. The one-line brief
 
-If there are disagreements during implementation, use these principles
-to decide.
-
-### 01 --- Typography over decoration
-
-If something can be communicated with typography and spacing, don't add
-a component.
-
-### 02 --- Content is the interface
-
-The site should make the actual writing and experiments feel valuable.
-
-### 03 --- Quiet by default
-
-The interface should disappear when you're reading.
-
-### 04 --- Playful by surprise
-
-Fun should emerge from interactions rather than visual noise.
-
-### 05 --- Earn complexity
-
-Every component needs a reason to exist.
-
-### 06 --- Space is a feature
-
-Don't optimize away whitespace.
-
-### 07 --- Personal, not personal-brand
-
-This is Shreyas's corner of the internet, not a marketing website for
-Shreyas.
-
-### 08 --- Fast feels sophisticated
-
-Performance is part of the aesthetic.
-
-------------------------------------------------------------------------
-
-# 20. Implementation checklist
-
--   [ ] Establish typography and spacing system first
--   [ ] Build homepage without decorative components
--   [ ] Build essay template before the rest of the site
--   [ ] Test typography using a real long essay
--   [ ] Build responsive behavior from the start
--   [ ] Build Making / experiments template
--   [ ] Add dark mode
--   [ ] Add subtle motion
--   [ ] Add search only when the archive warrants it
--   [ ] Add easter eggs after the core experience is excellent
--   [ ] Test keyboard navigation
--   [ ] Test mobile reading experience
--   [ ] Test page speed
--   [ ] Remove anything that feels like generic portfolio UI
-
-------------------------------------------------------------------------
-
-# 21. The one-line brief
-
-**Design shreyas.sh like a quiet, beautifully typeset personal notebook
-that happens to contain essays, software experiments, and games.**
+**Design shreyas.sh like a quiet, warmly typeset personal notebook that happens
+to contain essays, software experiments, games, and conversations.**

@@ -14,7 +14,11 @@
   --space-10: 6rem;
   --space-11: 8rem;
 
-  --page-max: 78rem;
+  /* Temporary centered-grid experiment: switch this assignment back to
+     --page-max-current to restore the previous desktop grid. */
+  --page-max-current: 78rem;
+  --page-max-narrow-test: 62rem;
+  --page-max: var(--page-max-narrow-test);
   --content-max: 46rem;
   --reading-max: 42rem;
   --gutter: clamp(1.25rem, 4vw, 3rem);
@@ -91,9 +95,9 @@ a:focus-visible {
 ::selection { background: var(--color-selection); }
 
 .site-header {
-  width: min(100%, var(--page-max));
+  width: min(calc(100% - var(--gutter) - var(--gutter)), var(--page-max));
   margin: 0 auto;
-  padding: var(--space-5) var(--gutter) 0;
+  padding: var(--space-5) 0 0;
 }
 
 .site-header__inner {
@@ -170,38 +174,38 @@ a:focus-visible {
 .site-footer a:hover { color: var(--color-text); }
 
 .site-main {
-  width: min(100%, var(--content-max));
+  width: min(calc(100% - var(--gutter) - var(--gutter)), var(--page-max));
   min-height: 68vh;
   margin: 0 auto;
-  padding: var(--space-8) var(--gutter) var(--space-10);
+  padding: var(--space-8) 0 var(--space-10);
 }
 
-.site-main--home { width: min(100%, var(--page-max)); }
+.site-main--home { width: min(calc(100% - var(--gutter) - var(--gutter)), var(--page-max)); }
 
 .site-main--work {
-  width: min(100%, var(--page-max));
+  width: min(calc(100% - var(--gutter) - var(--gutter)), var(--page-max));
   text-align: left;
 }
 
-.site-main--work > * { max-width: var(--content-max); }
+.site-main--work > * { max-width: var(--content-max); margin-inline: auto; }
 
 .site-main--podcast,
 .site-main--blog {
-  width: min(100%, var(--page-max));
+  width: min(calc(100% - var(--gutter) - var(--gutter)), var(--page-max));
   text-align: left;
 }
 
 .site-main--podcast > *,
-.site-main--blog > * { max-width: var(--reading-max); }
+.site-main--blog > * { max-width: var(--reading-max); margin-inline: auto; }
 
 .site-main--demo {
-  width: min(100%, var(--page-max));
+  width: min(calc(100% - var(--gutter) - var(--gutter)), var(--page-max));
   text-align: left;
 }
 
 .site-main--demo > * { max-width: var(--content-max); }
 
-.site-main > .content { margin: 0; overflow: visible; }
+.site-main > .content { max-width: var(--content-max); margin: 0 auto; overflow: visible; }
 .site-main .row, .site-main [class*="col-"] { min-width: 0; }
 
 /* Keep the intent of the small set of legacy utility classes used in content. */
@@ -270,9 +274,9 @@ pre {
 .self-photo { float: left; margin-right: var(--space-5); }
 
 .site-footer {
-  width: min(100%, var(--page-max));
+  width: min(calc(100% - var(--gutter) - var(--gutter)), var(--page-max));
   margin: 0 auto;
-  padding: 0 var(--gutter) var(--space-6);
+  padding: 0 0 var(--space-6);
 }
 
 .site-footer__inner {
@@ -291,7 +295,7 @@ pre {
 }
 
 /* Homepage: an introduction and a small, deliberately chosen shelf of work. */
-.home-page { max-width: 58rem; }
+.home-page { max-width: none; }
 
 .home-intro {
   max-width: 44rem;
@@ -385,9 +389,10 @@ pre {
 .home-closing > div > p:last-child { margin: 0; font-size: 1rem; line-height: 1.58; }
 
 /* Podcast pages keep the media secondary to the conversation. */
-.podcast-page { max-width: var(--reading-max); }
-.podcast-header { margin-bottom: var(--space-7); }
-.podcast-header h1 { max-width: 20ch; }
+.site-main--podcast > .podcast-page { max-width: none; }
+.podcast-page { max-width: none; }
+.podcast-header { max-width: var(--page-max); margin: 0 auto var(--space-7); }
+.podcast-header h1 { max-width: 28ch; }
 .podcast-meta {
   display: flex;
   flex-wrap: wrap;
@@ -400,11 +405,11 @@ pre {
 .podcast-meta span + span::before,
 .podcast-meta time::before { content: "·"; margin-right: var(--space-2); }
 .podcast-description { max-width: 38rem; }
-.podcast-player { width: 100%; margin: var(--space-7) 0 var(--space-4); }
+.podcast-player { width: 100%; max-width: var(--reading-max); margin: var(--space-7) 0 var(--space-4); }
 .podcast-player iframe { display: block; width: 100%; border: 0; }
 .podcast-player--youtube iframe { aspect-ratio: 16 / 9; height: auto; }
 .podcast-player--spotify iframe { height: 22rem; }
-.podcast-source { margin: 0; color: var(--color-text-muted); font-size: 0.875rem; }
+.podcast-source { max-width: var(--reading-max); margin: 0; color: var(--color-text-muted); font-size: 0.875rem; }
 
 /* Bizarre News is allowed its own little stage. */
 .bizarre-quiz {
