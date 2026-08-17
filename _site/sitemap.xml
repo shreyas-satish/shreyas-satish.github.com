@@ -1,112 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://shreyas.sh/</loc>
+    <loc>http://localhost:4000/</loc>
   </url>
   <url>
-    <loc>https://shreyas.sh/podcasts/</loc>
+    <loc>http://localhost:4000/podcasts/</loc>
   </url>
   
   
     
   <url>
-    <loc>https://shreyas.sh/blog/how-to-find-a-mentor</loc>
+    <loc>http://localhost:4000/blog/you-still-need-the-grunt-work</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/demo/bizarre-news-1</loc>
+    <loc>http://localhost:4000/blog/how-to-find-a-mentor</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/blog/design-for-change</loc>
+    <loc>http://localhost:4000/demo/bizarre-news-1</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/blog/alternative-learning-spaces</loc>
+    <loc>http://localhost:4000/blog/design-for-change</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/about</loc>
+    <loc>http://localhost:4000/blog/alternative-learning-spaces</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/demo/game-of-life</loc>
+    <loc>http://localhost:4000/about</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/blog/technagara</loc>
+    <loc>http://localhost:4000/demo/game-of-life</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/demo/brown</loc>
+    <loc>http://localhost:4000/blog/technagara</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/presentations</loc>
+    <loc>http://localhost:4000/demo/brown</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/demo/worldview</loc>
+    <loc>http://localhost:4000/presentations</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/social</loc>
+    <loc>http://localhost:4000/demo/worldview</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/demos/</loc>
+    <loc>http://localhost:4000/social</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/blog/</loc>
+    <loc>http://localhost:4000/demos/</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/podcasts/designers-ownpath/</loc>
+    <loc>http://localhost:4000/blog/</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/podcasts/lead-designer-hardik-pandya/</loc>
+    <loc>http://localhost:4000/podcasts/designers-ownpath/</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/podcasts/responsibilities-of-a-designer/</loc>
+    <loc>http://localhost:4000/podcasts/lead-designer-hardik-pandya/</loc>
   </url>
     
   
     
   <url>
-    <loc>https://shreyas.sh/podcasts/young-designers-and-mentorship/</loc>
+    <loc>http://localhost:4000/podcasts/responsibilities-of-a-designer/</loc>
+  </url>
+    
+  
+    
+  <url>
+    <loc>http://localhost:4000/podcasts/young-designers-and-mentorship/</loc>
   </url>
     
   
